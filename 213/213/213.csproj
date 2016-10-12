@@ -1,0 +1,411 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0B254E5B-E298-4C70-ACD2-70AE1E6B4D3D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>_213</RootNamespace>
+    <AssemblyName>213</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>stockI.T</ProductName>
+    <PublisherName>codedCoffee</PublisherName>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BCrypt.Net, Version=0.1.5073.29922, Culture=neutral, PublicKeyToken=6bcd409ee6bc9292, processorArchitecture=MSIL">
+      <HintPath>..\packages\BCrypt-Official.0.1.109\lib\BCrypt.Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Dropbox.Api, Version=0.1.6116.35118, Culture=neutral, PublicKeyToken=310f0e82fbb45d01, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dropbox.Api.3.6.0\lib\net45\Dropbox.Api.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.9.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.9\lib\itextsharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nemiro.OAuth, Version=1.12.45.2615, Culture=neutral, PublicKeyToken=cb06320e362d440b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nemiro.OAuth.1.12\lib\net45\Nemiro.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nemiro.OAuth.LoginForms, Version=1.5.45.2617, Culture=neutral, PublicKeyToken=2656cfe28099e3f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nemiro.OAuth.LoginForms.1.5\lib\net45\Nemiro.OAuth.LoginForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RoundButton">
+      <HintPath>..\..\..\..\Downloads\RoundButtonHost\RoundButtonHost\bin\Release\RoundButton.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Device" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="End of day\EndOfDay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="End of day\EndOfDay.Designer.cs">
+      <DependentUpon>EndOfDay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\frmAddEmp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\frmAddEmp.Designer.cs">
+      <DependentUpon>frmAddEmp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\frmAddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\frmAddUser.Designer.cs">
+      <DependentUpon>frmAddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\frmAdminPromos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\frmAdminPromos.Designer.cs">
+      <DependentUpon>frmAdminPromos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\frmEOM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\frmEOM.Designer.cs">
+      <DependentUpon>frmEOM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\frmForgotPass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\frmForgotPass.Designer.cs">
+      <DependentUpon>frmForgotPass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\frmLogs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\frmLogs.Designer.cs">
+      <DependentUpon>frmLogs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\frmManual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\frmManual.Designer.cs">
+      <DependentUpon>frmManual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\frmMessages.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\frmMessages.Designer.cs">
+      <DependentUpon>frmMessages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\frmREmp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\frmREmp.Designer.cs">
+      <DependentUpon>frmREmp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\frmRUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\frmRUser.Designer.cs">
+      <DependentUpon>frmRUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\frmUEmp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\frmUEmp.Designer.cs">
+      <DependentUpon>frmUEmp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\frmUpdateUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\frmUpdateUser.Designer.cs">
+      <DependentUpon>frmUpdateUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HQ\frmHQ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HQ\frmHQ.Designer.cs">
+      <DependentUpon>frmHQ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HQ\frmHQSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HQ\frmHQSearch.Designer.cs">
+      <DependentUpon>frmHQSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HQ\frmRemoveOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HQ\frmRemoveOrder.Designer.cs">
+      <DependentUpon>frmRemoveOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Technical\FrmTechnical.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Technical\FrmTechnical.designer.cs">
+      <DependentUpon>FrmTechnical.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Orders\frOrderConfirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Orders\frOrderConfirm.Designer.cs">
+      <DependentUpon>frOrderConfirm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gebruik.cs" />
+    <Compile Include="loginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="loginForm.Designer.cs">
+      <DependentUpon>loginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Orders\OrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Orders\OrderForm.Designer.cs">
+      <DependentUpon>OrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Sales\salesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\salesForm.Designer.cs">
+      <DependentUpon>salesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaterMarkTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <EmbeddedResource Include="End of day\EndOfDay.resx">
+      <DependentUpon>EndOfDay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\frmAddEmp.resx">
+      <DependentUpon>frmAddEmp.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\frmAddUser.resx">
+      <DependentUpon>frmAddUser.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\frmAdminPromos.resx">
+      <DependentUpon>frmAdminPromos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\frmEOM.resx">
+      <DependentUpon>frmEOM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\frmForgotPass.resx">
+      <DependentUpon>frmForgotPass.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\frmLogs.resx">
+      <DependentUpon>frmLogs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\frmManual.resx">
+      <DependentUpon>frmManual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\frmMessages.resx">
+      <DependentUpon>frmMessages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\frmREmp.resx">
+      <DependentUpon>frmREmp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\frmRUser.resx">
+      <DependentUpon>frmRUser.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\frmUEmp.resx">
+      <DependentUpon>frmUEmp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\frmUpdateUser.resx">
+      <DependentUpon>frmUpdateUser.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Stock\StockAddFormCLN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stock\StockAddFormCLN.designer.cs">
+      <DependentUpon>StockAddFormCLN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stock\StockAddFormUPD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stock\StockAddFormUPD.designer.cs">
+      <DependentUpon>StockAddFormUPD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stock\StockFindForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stock\StockFindForm.designer.cs">
+      <DependentUpon>StockFindForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stock\StockMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stock\StockMainForm.designer.cs">
+      <DependentUpon>StockMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stock\StockRemoveForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stock\StockRemoveForm.Designer.cs">
+      <DependentUpon>StockRemoveForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stock\StockTransferSendForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stock\StockTransferSendForm.Designer.cs">
+      <DependentUpon>StockTransferSendForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="HQ\frmHQ.resx">
+      <DependentUpon>frmHQ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HQ\frmHQSearch.resx">
+      <DependentUpon>frmHQSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="loginForm.resx">
+      <DependentUpon>loginForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Orders\frOrderConfirm.resx">
+      <DependentUpon>frOrderConfirm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Orders\OrderForm.resx">
+      <DependentUpon>OrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stock\StockAddFormCLN.resx">
+      <DependentUpon>StockAddFormCLN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stock\StockAddFormUPD.resx">
+      <DependentUpon>StockAddFormUPD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stock\StockFindForm.resx">
+      <DependentUpon>StockFindForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stock\StockMainForm.resx">
+      <DependentUpon>StockMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stock\StockRemoveForm.resx">
+      <DependentUpon>StockRemoveForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stock\StockTransferSendForm.resx">
+      <DependentUpon>StockTransferSendForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\salesForm.resx">
+      <DependentUpon>salesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Technical\FrmTechnical.resx">
+      <DependentUpon>FrmTechnical.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Resources\Sale.pdf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LICENSE.txt" />
+    <None Include="Resources\48992.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
