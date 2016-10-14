@@ -116,7 +116,7 @@ namespace _213
             DateTime local = DateTime.Now;
 
             gebruik.log(local, user, "logout");
-            gebruik.log(local, user, "exited application");
+            gebruik.log(local, user, "closed application");
   
             Application.Exit();
         }
@@ -229,7 +229,9 @@ namespace _213
         //end of day button
         private void roundButton2_Click(object sender, EventArgs e)
         {
-            EndOfDay ef = new EndOfDay();
+            if (pnlAdmin.Location.X > -216)
+                btnAdminHide.PerformClick();
+            frmEndOfDay ef = new frmEndOfDay(user);
             this.TopMost = false;
             ef.ShowDialog();
             this.TopMost = true;
@@ -238,7 +240,9 @@ namespace _213
         //sale button
         private void saleButton_Click(object sender, EventArgs e)
         {
-            salesForm f1 = new salesForm();
+            if (pnlAdmin.Location.X > -216)
+                btnAdminHide.PerformClick();
+            salesForm f1 = new salesForm(user);
             this.TopMost = false;
             f1.ShowDialog();
             this.TopMost = true;
@@ -248,7 +252,8 @@ namespace _213
         //order button 
         private void roundButton3_Click(object sender, EventArgs e)
         {
-
+            if (pnlAdmin.Location.X > -216)
+                btnAdminHide.PerformClick();
             OrderForm OF = new OrderForm(user);
             this.TopMost = false;
             OF.ShowDialog();
@@ -259,6 +264,8 @@ namespace _213
         //technical button
         private void roundButton5_Click(object sender, EventArgs e)
         {
+            if (pnlAdmin.Location.X > -216)
+                btnAdminHide.PerformClick();
             FrmTechnical ft = new FrmTechnical(user);
             this.TopMost = false;
             ft.ShowDialog();
@@ -268,6 +275,8 @@ namespace _213
         //hq button
         private void roundButton6_Click(object sender, EventArgs e)
         {
+            if(pnlAdmin.Location.X > -216)
+                btnAdminHide.PerformClick();
             frmHQ hq = new frmHQ(user);
             this.TopMost = false;
             hq.ShowDialog();
@@ -278,7 +287,8 @@ namespace _213
         //stock button
         private void roundButton4_Click(object sender, EventArgs e)
         {
-
+            if (pnlAdmin.Location.X > -216)
+                btnAdminHide.PerformClick();
             StockMainFormCLN stockMainForm = new StockMainFormCLN(user);
             this.TopMost = false;
             stockMainForm.ShowDialog();
@@ -458,6 +468,19 @@ namespace _213
         private void bgWAuthor_DoWork(object sender, DoWorkEventArgs e)
         {
             auth = util.checkAuthor(user);
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.F1)
+            {
+                frmManual fm = new frmManual();
+                fm.ShowDialog();
+                return true;    // indicate that you handled this keystroke
+            }
+
+            // Call the base class
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

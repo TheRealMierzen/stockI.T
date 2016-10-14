@@ -88,7 +88,7 @@ namespace _213
                                     dr.Close();
                                     con.Close();
 
-                                    if (other.Mail(txtEmail.Text, "StockI.T account created!", "Your stockI.T account has been created and you can now use the software using the following details:\r\n\r\n\tUsername: " + txtNUser.Text + "\r\n\tYour account level is: " + cbLevel.SelectedItem.ToString() + "\r\n\r\nYour account level determines which tasks you can perform on the system.\r\n\r\nPlease keep this email for future reference."))
+                                    if (other.Mail(txtEmail.Text, "StockI.T account created!", "Your stockI.T account has been created and you can now use the software using the following details:\r\n\r\n\tUsername: " + txtNUser.Text + "\r\n\tPassword: " + ps + "\r\n\tYour account level is: " + cbLevel.SelectedItem.ToString() + "\r\n\r\nYour account level determines which tasks you can perform on the system.\r\n\r\nPlease keep this email for future reference."))
                                     {
                                         if (other.Mail(mail, "New user added", "A new user has been added.\r\n\r\nThe new account's details are:\r\n\tUsername: " + txtNUser.Text + "\r\n\tAccount Level: " + cbLevel.SelectedItem.ToString() + "\r\n\r\nIf you did not authorize this account, you can remove the new account at any time."))
                                         {

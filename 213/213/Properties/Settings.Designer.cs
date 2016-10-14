@@ -94,5 +94,17 @@ namespace _213.Properties {
                 this["isAdmin"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int authLevel {
+            get {
+                return ((int)(this["authLevel"]));
+            }
+            set {
+                this["authLevel"] = value;
+            }
+        }
     }
 }

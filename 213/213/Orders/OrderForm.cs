@@ -142,7 +142,7 @@ namespace _213
 
         private void OrderForm_Load(object sender, EventArgs e)
         {
-            //this.TopMost = true;
+            this.TopMost = true;
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
 
@@ -269,14 +269,14 @@ namespace _213
             catch(IndexOutOfRangeException ior)
             {
                 
-                MessageBox.Show("An error occurred during the " + ior.TargetSite + " process. Please verify the entered information and try again. If the problem persists, please contact our support team: blahblahsuppot \r\n" + ior.Message,"Error");
+                MessageBox.Show("An error occurred during the " + ior.TargetSite + " process. Please verify the entered information and try again. If the problem persists, please contact our support team: codedCoffeeTest@gmail.comsuppot \r\n" + ior.Message,"Error");
                 return true;
 
             }
             catch(Exception e)
             {
 
-                MessageBox.Show("An error occurred during the " + e.TargetSite  + " process. Please verify the entered information and try again. If the problem persists, please contact our support team: blahblahsuppot \r\n" + e.Message + " addOrder - line 256", "Error");
+                MessageBox.Show("An error occurred during the " + e.TargetSite  + " process. Please verify the entered information and try again. If the problem persists, please contact our support team: codedCoffeeTest@gmail.comsuppot \r\n" + e.Message + " addOrder - line 256", "Error");
                 return false;
 
             }
@@ -671,7 +671,7 @@ namespace _213
             DateTime local = DateTime.Now;
 
             gebruik.log(local, userName, "logout");
-            gebruik.log(local, userName, "exited application");
+            gebruik.log(local, userName, "closed application");
 
             Application.Exit();
         }
@@ -686,6 +686,18 @@ namespace _213
         {
             for (int pos = -233; pos < 0; pos++)
                 pnlAdmin.Location = new Point(pos, 0);
+        }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.F1)
+            {
+                frmManual fm = new frmManual();
+                fm.ShowDialog();
+                return true;    // indicate that you handled this keystroke
+            }
+
+            // Call the base class
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

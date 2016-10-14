@@ -1,6 +1,6 @@
 ﻿namespace _213
 {
-    partial class EndOfDay
+    partial class frmEndOfDay
     {
         /// <summary>
         /// Required designer variable.
@@ -28,24 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.btnOrders = new System.Windows.Forms.Button();
-            this.btnSales = new System.Windows.Forms.Button();
-            this.btnStock = new System.Windows.Forms.Button();
-            this.btnTransfers = new System.Windows.Forms.Button();
-            this.btnCompleteReport = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnBack = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.btnOrderReport = new System.Windows.Forms.Button();
-            this.btnSalesReport = new System.Windows.Forms.Button();
-            this.btnStockReport = new System.Windows.Forms.Button();
-            this.btnTransfersReport = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.chbOrders = new System.Windows.Forms.CheckBox();
+            this.chbRepairs = new System.Windows.Forms.CheckBox();
+            this.chbSales = new System.Windows.Forms.CheckBox();
+            this.chbStock = new System.Windows.Forms.CheckBox();
             this.btnCompleteDay = new System.Windows.Forms.Button();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnBack = new System.Windows.Forms.Button();
+            this.txtOutput = new System.Windows.Forms.TextBox();
             this.pnlAdmin = new System.Windows.Forms.Panel();
             this.btnAdminHide = new GaryPerkin.UserControls.Buttons.RoundButton();
             this.btnMPromo = new System.Windows.Forms.Button();
@@ -62,7 +51,7 @@
             this.btnRUser = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnUUser = new System.Windows.Forms.Button();
             this.btnAddUser = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
@@ -70,164 +59,92 @@
             this.lblMiscB = new System.Windows.Forms.Label();
             this.btnAddEmp = new System.Windows.Forms.Button();
             this.btnAdminShow = new GaryPerkin.UserControls.Buttons.RoundButton();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlAdmin.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnOrders
+            // chbOrders
             // 
-            this.btnOrders.Location = new System.Drawing.Point(71, 35);
-            this.btnOrders.Margin = new System.Windows.Forms.Padding(4);
-            this.btnOrders.Name = "btnOrders";
-            this.btnOrders.Size = new System.Drawing.Size(161, 49);
-            this.btnOrders.TabIndex = 1;
-            this.btnOrders.Text = "Orders Report";
-            this.toolTip1.SetToolTip(this.btnOrders, "Orders Tabel View");
-            this.btnOrders.UseVisualStyleBackColor = true;
-            this.btnOrders.Click += new System.EventHandler(this.btnOrder_Click);
+            this.chbOrders.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.chbOrders.AutoSize = true;
+            this.chbOrders.Location = new System.Drawing.Point(323, 436);
+            this.chbOrders.Name = "chbOrders";
+            this.chbOrders.Size = new System.Drawing.Size(74, 21);
+            this.chbOrders.TabIndex = 39;
+            this.chbOrders.Text = "Orders";
+            this.chbOrders.UseVisualStyleBackColor = true;
+            this.chbOrders.CheckedChanged += new System.EventHandler(this.chbOrders_CheckedChanged);
             // 
-            // btnSales
+            // chbRepairs
             // 
-            this.btnSales.Location = new System.Drawing.Point(281, 35);
-            this.btnSales.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSales.Name = "btnSales";
-            this.btnSales.Size = new System.Drawing.Size(153, 49);
-            this.btnSales.TabIndex = 2;
-            this.btnSales.Text = "Sales Report";
-            this.btnSales.UseVisualStyleBackColor = true;
-            this.btnSales.Click += new System.EventHandler(this.btnSales_Click);
+            this.chbRepairs.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.chbRepairs.AutoSize = true;
+            this.chbRepairs.Location = new System.Drawing.Point(323, 386);
+            this.chbRepairs.Name = "chbRepairs";
+            this.chbRepairs.Size = new System.Drawing.Size(79, 21);
+            this.chbRepairs.TabIndex = 38;
+            this.chbRepairs.Text = "Repairs";
+            this.chbRepairs.UseVisualStyleBackColor = true;
+            this.chbRepairs.CheckedChanged += new System.EventHandler(this.chbRepairs_CheckedChanged);
             // 
-            // btnStock
+            // chbSales
             // 
-            this.btnStock.Location = new System.Drawing.Point(501, 35);
-            this.btnStock.Margin = new System.Windows.Forms.Padding(4);
-            this.btnStock.Name = "btnStock";
-            this.btnStock.Size = new System.Drawing.Size(185, 49);
-            this.btnStock.TabIndex = 3;
-            this.btnStock.Text = "Stock Report";
-            this.btnStock.UseVisualStyleBackColor = true;
-            this.btnStock.Click += new System.EventHandler(this.btnStock_Click);
+            this.chbSales.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.chbSales.AutoSize = true;
+            this.chbSales.Location = new System.Drawing.Point(323, 338);
+            this.chbSales.Name = "chbSales";
+            this.chbSales.Size = new System.Drawing.Size(65, 21);
+            this.chbSales.TabIndex = 37;
+            this.chbSales.Text = "Sales";
+            this.chbSales.UseVisualStyleBackColor = true;
+            this.chbSales.CheckedChanged += new System.EventHandler(this.chbSales_CheckedChanged);
             // 
-            // btnTransfers
+            // chbStock
             // 
-            this.btnTransfers.Location = new System.Drawing.Point(750, 35);
-            this.btnTransfers.Margin = new System.Windows.Forms.Padding(4);
-            this.btnTransfers.Name = "btnTransfers";
-            this.btnTransfers.Size = new System.Drawing.Size(165, 49);
-            this.btnTransfers.TabIndex = 4;
-            this.btnTransfers.Text = "Transfer Report";
-            this.btnTransfers.UseVisualStyleBackColor = true;
-            this.btnTransfers.Click += new System.EventHandler(this.btnTransfers_Click);
+            this.chbStock.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.chbStock.AutoSize = true;
+            this.chbStock.Location = new System.Drawing.Point(323, 287);
+            this.chbStock.Name = "chbStock";
+            this.chbStock.Size = new System.Drawing.Size(65, 21);
+            this.chbStock.TabIndex = 36;
+            this.chbStock.Text = "Stock";
+            this.chbStock.UseVisualStyleBackColor = true;
+            this.chbStock.CheckedChanged += new System.EventHandler(this.chbStock_CheckedChanged);
             // 
-            // btnCompleteReport
+            // btnCompleteDay
             // 
-            this.btnCompleteReport.Location = new System.Drawing.Point(1065, 35);
-            this.btnCompleteReport.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCompleteReport.Name = "btnCompleteReport";
-            this.btnCompleteReport.Size = new System.Drawing.Size(172, 49);
-            this.btnCompleteReport.TabIndex = 6;
-            this.btnCompleteReport.Text = "View Complete Summarized Report";
-            this.btnCompleteReport.UseVisualStyleBackColor = true;
-            this.btnCompleteReport.Click += new System.EventHandler(this.btnCompleteReport_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(941, 175);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(443, 394);
-            this.textBox1.TabIndex = 7;
+            this.btnCompleteDay.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCompleteDay.Location = new System.Drawing.Point(289, 581);
+            this.btnCompleteDay.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCompleteDay.Name = "btnCompleteDay";
+            this.btnCompleteDay.Size = new System.Drawing.Size(195, 49);
+            this.btnCompleteDay.TabIndex = 35;
+            this.btnCompleteDay.Text = "Complete Day";
+            this.btnCompleteDay.UseVisualStyleBackColor = true;
+            this.btnCompleteDay.Click += new System.EventHandler(this.btnCompleteDay_Click);
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(16, 6);
+            this.btnBack.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnBack.Location = new System.Drawing.Point(948, 184);
             this.btnBack.Margin = new System.Windows.Forms.Padding(4);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(100, 28);
-            this.btnBack.TabIndex = 8;
+            this.btnBack.TabIndex = 34;
             this.btnBack.Text = "back";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // dataGridView1
+            // txtOutput
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(54, 139);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(861, 569);
-            this.dataGridView1.TabIndex = 10;
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // btnOrderReport
-            // 
-            this.btnOrderReport.Location = new System.Drawing.Point(941, 139);
-            this.btnOrderReport.Margin = new System.Windows.Forms.Padding(4);
-            this.btnOrderReport.Name = "btnOrderReport";
-            this.btnOrderReport.Size = new System.Drawing.Size(100, 28);
-            this.btnOrderReport.TabIndex = 21;
-            this.btnOrderReport.Text = "Orders";
-            this.btnOrderReport.UseVisualStyleBackColor = true;
-            this.btnOrderReport.Click += new System.EventHandler(this.btnOrderReport_Click);
-            // 
-            // btnSalesReport
-            // 
-            this.btnSalesReport.Location = new System.Drawing.Point(1049, 139);
-            this.btnSalesReport.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSalesReport.Name = "btnSalesReport";
-            this.btnSalesReport.Size = new System.Drawing.Size(100, 28);
-            this.btnSalesReport.TabIndex = 22;
-            this.btnSalesReport.Text = "Sales";
-            this.btnSalesReport.UseVisualStyleBackColor = true;
-            this.btnSalesReport.Click += new System.EventHandler(this.btnSalesReport_Click);
-            // 
-            // btnStockReport
-            // 
-            this.btnStockReport.Location = new System.Drawing.Point(1157, 139);
-            this.btnStockReport.Margin = new System.Windows.Forms.Padding(4);
-            this.btnStockReport.Name = "btnStockReport";
-            this.btnStockReport.Size = new System.Drawing.Size(100, 28);
-            this.btnStockReport.TabIndex = 23;
-            this.btnStockReport.Text = "Stock";
-            this.btnStockReport.UseVisualStyleBackColor = true;
-            this.btnStockReport.Click += new System.EventHandler(this.btnStockReport_Click);
-            // 
-            // btnTransfersReport
-            // 
-            this.btnTransfersReport.Location = new System.Drawing.Point(1265, 139);
-            this.btnTransfersReport.Margin = new System.Windows.Forms.Padding(4);
-            this.btnTransfersReport.Name = "btnTransfersReport";
-            this.btnTransfersReport.Size = new System.Drawing.Size(100, 28);
-            this.btnTransfersReport.TabIndex = 24;
-            this.btnTransfersReport.Text = "Transfers";
-            this.btnTransfersReport.UseVisualStyleBackColor = true;
-            this.btnTransfersReport.Click += new System.EventHandler(this.btnTransferReport_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(961, 107);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(384, 17);
-            this.label2.TabIndex = 25;
-            this.label2.Text = "Use these Buttons below for Individual Summarized Reports";
-            // 
-            // btnCompleteDay
-            // 
-            this.btnCompleteDay.Location = new System.Drawing.Point(1557, 107);
-            this.btnCompleteDay.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCompleteDay.Name = "btnCompleteDay";
-            this.btnCompleteDay.Size = new System.Drawing.Size(195, 49);
-            this.btnCompleteDay.TabIndex = 26;
-            this.btnCompleteDay.Text = "Complete Day";
-            this.btnCompleteDay.UseVisualStyleBackColor = true;
-            this.btnCompleteDay.Click += new System.EventHandler(this.btnCompleteDay_Click);
+            this.txtOutput.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtOutput.Location = new System.Drawing.Point(532, 237);
+            this.txtOutput.Margin = new System.Windows.Forms.Padding(4);
+            this.txtOutput.Multiline = true;
+            this.txtOutput.Name = "txtOutput";
+            this.txtOutput.ReadOnly = true;
+            this.txtOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtOutput.Size = new System.Drawing.Size(516, 462);
+            this.txtOutput.TabIndex = 33;
             // 
             // pnlAdmin
             // 
@@ -247,18 +164,18 @@
             this.pnlAdmin.Controls.Add(this.btnRUser);
             this.pnlAdmin.Controls.Add(this.label3);
             this.pnlAdmin.Controls.Add(this.label1);
-            this.pnlAdmin.Controls.Add(this.label4);
+            this.pnlAdmin.Controls.Add(this.label2);
             this.pnlAdmin.Controls.Add(this.btnUUser);
             this.pnlAdmin.Controls.Add(this.btnAddUser);
             this.pnlAdmin.Controls.Add(this.btnExit);
             this.pnlAdmin.Controls.Add(this.lblMiscT);
             this.pnlAdmin.Controls.Add(this.lblMiscB);
             this.pnlAdmin.Controls.Add(this.btnAddEmp);
-            this.pnlAdmin.Location = new System.Drawing.Point(-216, -1);
+            this.pnlAdmin.Location = new System.Drawing.Point(-216, -2);
             this.pnlAdmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlAdmin.Name = "pnlAdmin";
             this.pnlAdmin.Size = new System.Drawing.Size(213, 1401);
-            this.pnlAdmin.TabIndex = 27;
+            this.pnlAdmin.TabIndex = 40;
             // 
             // btnAdminHide
             // 
@@ -430,15 +347,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Administrative";
             // 
-            // label4
+            // label2
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(-3, 18);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(240, 17);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "_____________________________";
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Location = new System.Drawing.Point(-3, 18);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(240, 17);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "_____________________________";
             // 
             // btnUUser
             // 
@@ -510,42 +427,33 @@
             // btnAdminShow
             // 
             this.btnAdminShow.BackColor = System.Drawing.Color.White;
-            this.btnAdminShow.Location = new System.Drawing.Point(12, 368);
+            this.btnAdminShow.Location = new System.Drawing.Point(12, 378);
             this.btnAdminShow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdminShow.Name = "btnAdminShow";
             this.btnAdminShow.RecessDepth = 0;
             this.btnAdminShow.Size = new System.Drawing.Size(35, 34);
-            this.btnAdminShow.TabIndex = 28;
+            this.btnAdminShow.TabIndex = 19;
             this.btnAdminShow.Text = ">>";
             this.btnAdminShow.UseVisualStyleBackColor = false;
             this.btnAdminShow.Click += new System.EventHandler(this.btnAdminShow_Click);
             // 
-            // EndOfDay
+            // frmEndOfDay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1805, 721);
-            this.Controls.Add(this.pnlAdmin);
+            this.ClientSize = new System.Drawing.Size(1408, 876);
             this.Controls.Add(this.btnAdminShow);
+            this.Controls.Add(this.pnlAdmin);
+            this.Controls.Add(this.chbOrders);
+            this.Controls.Add(this.chbRepairs);
+            this.Controls.Add(this.chbSales);
+            this.Controls.Add(this.chbStock);
             this.Controls.Add(this.btnCompleteDay);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnTransfersReport);
-            this.Controls.Add(this.btnStockReport);
-            this.Controls.Add(this.btnSalesReport);
-            this.Controls.Add(this.btnOrderReport);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.btnCompleteReport);
-            this.Controls.Add(this.btnTransfers);
-            this.Controls.Add(this.btnStock);
-            this.Controls.Add(this.btnSales);
-            this.Controls.Add(this.btnOrders);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "EndOfDay";
-            this.Text = "EndOfDay";
-            this.Load += new System.EventHandler(this.EndOfDay_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Controls.Add(this.txtOutput);
+            this.Name = "frmEndOfDay";
+            this.Text = "frmEndOfDay";
+            this.Load += new System.EventHandler(this.frmEndOfDay_Load);
             this.pnlAdmin.ResumeLayout(false);
             this.pnlAdmin.PerformLayout();
             this.ResumeLayout(false);
@@ -555,23 +463,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnOrders;
-        private System.Windows.Forms.Button btnSales;
-        private System.Windows.Forms.Button btnStock;
-        private System.Windows.Forms.Button btnTransfers;
-        private System.Windows.Forms.Button btnCompleteReport;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.Button btnOrderReport;
-        private System.Windows.Forms.Button btnSalesReport;
-        private System.Windows.Forms.Button btnStockReport;
-        private System.Windows.Forms.Button btnTransfersReport;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox chbOrders;
+        private System.Windows.Forms.CheckBox chbRepairs;
+        private System.Windows.Forms.CheckBox chbSales;
+        private System.Windows.Forms.CheckBox chbStock;
         private System.Windows.Forms.Button btnCompleteDay;
-        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.TextBox txtOutput;
         private System.Windows.Forms.Panel pnlAdmin;
         private GaryPerkin.UserControls.Buttons.RoundButton btnAdminHide;
         private System.Windows.Forms.Button btnMPromo;
@@ -588,7 +486,7 @@
         private System.Windows.Forms.Button btnRUser;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnUUser;
         private System.Windows.Forms.Button btnAddUser;
         private System.Windows.Forms.Button btnExit;

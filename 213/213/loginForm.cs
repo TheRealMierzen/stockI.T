@@ -30,7 +30,7 @@ namespace _213
         private void loginForm_Load(object sender, EventArgs e)
         {
             //////////////Maak/Fullscreen////////////////
-            /*this.TopMost = true;*/
+            this.TopMost = true;
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
             /////////////////////////////////////////////
@@ -1206,6 +1206,11 @@ namespace _213
         {
             checkBranch(Properties.Settings.Default.Branch);
             firstrun = true;
+        }
+
+        private void lblRemaining_Click(object sender, EventArgs e)
+        {
+            txtLPass.Focus();
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////
     }

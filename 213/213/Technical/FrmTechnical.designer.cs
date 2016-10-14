@@ -31,12 +31,24 @@
             this.components = new System.ComponentModel.Container();
             this.cbxLayout = new System.Windows.Forms.ComboBox();
             this.gpbClient = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.cbxCollected = new System.Windows.Forms.CheckBox();
+            this.cbxCompleted = new System.Windows.Forms.CheckBox();
+            this.txtRepairID = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.btnConfirmRep = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.rbtnWarranty = new System.Windows.Forms.RadioButton();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.gpxtech = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtPrim = new System.Windows.Forms.ComboBox();
             this.txbID = new System.Windows.Forms.TextBox();
+            this.btnPlaceorder = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtMics = new System.Windows.Forms.TextBox();
@@ -52,8 +64,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
-            this.btnQuote = new System.Windows.Forms.Button();
-            this.btnPlaceorder = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCost = new System.Windows.Forms.TextBox();
@@ -97,7 +107,8 @@
             this.cbxLayout.FormattingEnabled = true;
             this.cbxLayout.Items.AddRange(new object[] {
             "Custom build",
-            "Repairs"});
+            "Repairs",
+            "Review Repairs"});
             this.cbxLayout.Location = new System.Drawing.Point(4, 4);
             this.cbxLayout.Margin = new System.Windows.Forms.Padding(4);
             this.cbxLayout.Name = "cbxLayout";
@@ -107,20 +118,143 @@
             // 
             // gpbClient
             // 
+            this.gpbClient.Controls.Add(this.button1);
+            this.gpbClient.Controls.Add(this.cbxCollected);
+            this.gpbClient.Controls.Add(this.cbxCompleted);
+            this.gpbClient.Controls.Add(this.txtRepairID);
+            this.gpbClient.Controls.Add(this.label21);
+            this.gpbClient.Controls.Add(this.btnConfirmRep);
+            this.gpbClient.Controls.Add(this.textBox2);
+            this.gpbClient.Controls.Add(this.label20);
+            this.gpbClient.Controls.Add(this.rbtnWarranty);
+            this.gpbClient.Controls.Add(this.textBox1);
+            this.gpbClient.Controls.Add(this.label19);
             this.gpbClient.Controls.Add(this.txtEmail);
             this.gpbClient.Controls.Add(this.label6);
             this.gpbClient.Location = new System.Drawing.Point(4, 4);
             this.gpbClient.Margin = new System.Windows.Forms.Padding(4);
             this.gpbClient.Name = "gpbClient";
             this.gpbClient.Padding = new System.Windows.Forms.Padding(4);
-            this.gpbClient.Size = new System.Drawing.Size(389, 135);
+            this.gpbClient.Size = new System.Drawing.Size(389, 184);
             this.gpbClient.TabIndex = 2;
             this.gpbClient.TabStop = false;
             this.gpbClient.Text = "Client info";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(22, 118);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(98, 31);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Complete";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // cbxCollected
+            // 
+            this.cbxCollected.AutoSize = true;
+            this.cbxCollected.Location = new System.Drawing.Point(22, 89);
+            this.cbxCollected.Name = "cbxCollected";
+            this.cbxCollected.Size = new System.Drawing.Size(88, 21);
+            this.cbxCollected.TabIndex = 17;
+            this.cbxCollected.Text = "Collected";
+            this.cbxCollected.UseVisualStyleBackColor = true;
+            this.cbxCollected.CheckedChanged += new System.EventHandler(this.cbxCollected_CheckedChanged);
+            // 
+            // cbxCompleted
+            // 
+            this.cbxCompleted.AutoSize = true;
+            this.cbxCompleted.Location = new System.Drawing.Point(22, 55);
+            this.cbxCompleted.Name = "cbxCompleted";
+            this.cbxCompleted.Size = new System.Drawing.Size(97, 21);
+            this.cbxCompleted.TabIndex = 16;
+            this.cbxCompleted.Text = "Completed";
+            this.cbxCompleted.UseVisualStyleBackColor = true;
+            this.cbxCompleted.CheckedChanged += new System.EventHandler(this.cbxCompleted_CheckedChanged);
+            // 
+            // txtRepairID
+            // 
+            this.txtRepairID.Location = new System.Drawing.Point(94, 26);
+            this.txtRepairID.Margin = new System.Windows.Forms.Padding(4);
+            this.txtRepairID.Name = "txtRepairID";
+            this.txtRepairID.Size = new System.Drawing.Size(229, 22);
+            this.txtRepairID.TabIndex = 15;
+            this.passTT.SetToolTip(this.txtRepairID, "Please enter the Client\'s E-Mail.");
+            this.txtRepairID.TextChanged += new System.EventHandler(this.txtRepairID_TextChanged);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(19, 26);
+            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(67, 17);
+            this.label21.TabIndex = 14;
+            this.label21.Text = "Repair ID";
+            // 
+            // btnConfirmRep
+            // 
+            this.btnConfirmRep.Location = new System.Drawing.Point(204, 128);
+            this.btnConfirmRep.Name = "btnConfirmRep";
+            this.btnConfirmRep.Size = new System.Drawing.Size(98, 31);
+            this.btnConfirmRep.TabIndex = 2;
+            this.btnConfirmRep.Text = "Complete";
+            this.btnConfirmRep.UseVisualStyleBackColor = true;
+            this.btnConfirmRep.Click += new System.EventHandler(this.btnConfirmRep_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(84, 89);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(229, 22);
+            this.textBox2.TabIndex = 13;
+            this.passTT.SetToolTip(this.textBox2, "Please enter the Client\'s E-Mail.");
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(19, 92);
+            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(31, 17);
+            this.label20.TabIndex = 12;
+            this.label20.Text = "Cell";
+            // 
+            // rbtnWarranty
+            // 
+            this.rbtnWarranty.AutoSize = true;
+            this.rbtnWarranty.Location = new System.Drawing.Point(84, 118);
+            this.rbtnWarranty.Name = "rbtnWarranty";
+            this.rbtnWarranty.Size = new System.Drawing.Size(87, 21);
+            this.rbtnWarranty.TabIndex = 0;
+            this.rbtnWarranty.TabStop = true;
+            this.rbtnWarranty.Text = "Warranty";
+            this.rbtnWarranty.UseVisualStyleBackColor = true;
+            this.rbtnWarranty.CheckedChanged += new System.EventHandler(this.rbtnWarranty_CheckedChanged);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(84, 29);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(229, 22);
+            this.textBox1.TabIndex = 11;
+            this.passTT.SetToolTip(this.textBox1, "Please enter the Client\'s E-Mail.");
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(19, 32);
+            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(45, 17);
+            this.label19.TabIndex = 10;
+            this.label19.Text = "Name";
+            // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(83, 48);
+            this.txtEmail.Location = new System.Drawing.Point(84, 59);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(229, 22);
@@ -130,7 +264,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(15, 48);
+            this.label6.Location = new System.Drawing.Point(19, 59);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(47, 17);
@@ -142,6 +276,7 @@
             this.gpxtech.Controls.Add(this.label3);
             this.gpxtech.Controls.Add(this.txtPrim);
             this.gpxtech.Controls.Add(this.txbID);
+            this.gpxtech.Controls.Add(this.btnPlaceorder);
             this.gpxtech.Controls.Add(this.label15);
             this.gpxtech.Controls.Add(this.label1);
             this.gpxtech.Controls.Add(this.txtMics);
@@ -156,11 +291,11 @@
             this.gpxtech.Controls.Add(this.label12);
             this.gpxtech.Controls.Add(this.label11);
             this.gpxtech.Controls.Add(this.label10);
-            this.gpxtech.Location = new System.Drawing.Point(4, 187);
+            this.gpxtech.Location = new System.Drawing.Point(4, 196);
             this.gpxtech.Margin = new System.Windows.Forms.Padding(4);
             this.gpxtech.Name = "gpxtech";
             this.gpxtech.Padding = new System.Windows.Forms.Padding(4);
-            this.gpxtech.Size = new System.Drawing.Size(389, 513);
+            this.gpxtech.Size = new System.Drawing.Size(389, 540);
             this.gpxtech.TabIndex = 4;
             this.gpxtech.TabStop = false;
             this.gpxtech.Text = "Custom build";
@@ -193,6 +328,18 @@
             this.txbID.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.txbID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbID_KeyPress);
             this.txbID.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txbID_PreviewKeyDown);
+            // 
+            // btnPlaceorder
+            // 
+            this.btnPlaceorder.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnPlaceorder.Location = new System.Drawing.Point(139, 504);
+            this.btnPlaceorder.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPlaceorder.Name = "btnPlaceorder";
+            this.btnPlaceorder.Size = new System.Drawing.Size(100, 28);
+            this.btnPlaceorder.TabIndex = 8;
+            this.btnPlaceorder.Text = "Complete";
+            this.btnPlaceorder.UseVisualStyleBackColor = true;
+            this.btnPlaceorder.Click += new System.EventHandler(this.btnPlaceorder_Click);
             // 
             // label15
             // 
@@ -352,30 +499,6 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // btnQuote
-            // 
-            this.btnQuote.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnQuote.Location = new System.Drawing.Point(487, 187);
-            this.btnQuote.Margin = new System.Windows.Forms.Padding(4);
-            this.btnQuote.Name = "btnQuote";
-            this.btnQuote.Size = new System.Drawing.Size(100, 30);
-            this.btnQuote.TabIndex = 6;
-            this.btnQuote.Text = "Get Quote";
-            this.btnQuote.UseVisualStyleBackColor = true;
-            this.btnQuote.Click += new System.EventHandler(this.btnQuote_Click);
-            // 
-            // btnPlaceorder
-            // 
-            this.btnPlaceorder.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnPlaceorder.Location = new System.Drawing.Point(487, 708);
-            this.btnPlaceorder.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPlaceorder.Name = "btnPlaceorder";
-            this.btnPlaceorder.Size = new System.Drawing.Size(100, 28);
-            this.btnPlaceorder.TabIndex = 8;
-            this.btnPlaceorder.Text = "Place Order";
-            this.btnPlaceorder.UseVisualStyleBackColor = true;
-            this.btnPlaceorder.Click += new System.EventHandler(this.btnPlaceorder_Click);
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label2);
@@ -422,6 +545,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 151F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(677, 42);
             this.tableLayoutPanel1.TabIndex = 14;
+            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // tableLayoutPanel2
             // 
@@ -429,11 +553,9 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.gpxtech, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.gpbClient, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.groupBox2, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnQuote, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.btnPlaceorder, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.gpxtech, 0, 1);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(182, 67);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -444,6 +566,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(677, 741);
             this.tableLayoutPanel2.TabIndex = 15;
+            this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
             // 
             // passTT
             // 
@@ -772,6 +895,7 @@
             this.Name = "FrmTechnical";
             this.Text = "FrmTechnical";
             this.Load += new System.EventHandler(this.FrmTechnical_Load);
+            this.Shown += new System.EventHandler(this.FrmTechnical_Shown);
             this.gpbClient.ResumeLayout(false);
             this.gpbClient.PerformLayout();
             this.gpxtech.ResumeLayout(false);
@@ -800,7 +924,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Button btnQuote;
         private System.Windows.Forms.Button btnPlaceorder;
         private System.Windows.Forms.Label Cpu;
         private System.Windows.Forms.ComboBox txtCpu;
@@ -843,5 +966,16 @@
         private System.Windows.Forms.Label lblMiscB;
         private System.Windows.Forms.Button btnAddEmp;
         private GaryPerkin.UserControls.Buttons.RoundButton btnAdminShow;
+        private System.Windows.Forms.RadioButton rbtnWarranty;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Button btnConfirmRep;
+        private System.Windows.Forms.TextBox txtRepairID;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.CheckBox cbxCollected;
+        private System.Windows.Forms.CheckBox cbxCompleted;
+        private System.Windows.Forms.Button button1;
     }
 }

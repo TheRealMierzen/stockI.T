@@ -133,7 +133,9 @@ namespace _213
 
         private void StockMainForm_Load(object sender, EventArgs e)
         {
-
+            this.TopMost = true;
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
             btnAdminShow.Location = new Point(13, (this.Height) / 2 - 20);
             btnAdminHide.Location = new Point(133, (this.Height) / 2 - 20);
 
@@ -166,6 +168,7 @@ namespace _213
                 btnAdminShow.Visible = false;
 
             }
+
         }
 
         private void btnBackMain_Click(object sender, EventArgs e)
@@ -301,6 +304,14 @@ namespace _213
                                 StockAddFormCLN frmAddCLN = new StockAddFormCLN(userNme);
                                 frmAddCLN.ShowDialog();
                             }
+                            else
+                            {
+                                MessageBox.Show("The estimated arrival date will be delayed with one day.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                SqlCommand updateETA = new SqlCommand("UPDATE Orders SET eta = @eta WHERE order_id = @id", stockConnection);
+                                updateETA.Parameters.AddWithValue("@eta", DateTime.Today.AddDays(1));
+                                updateETA.Parameters.AddWithValue("@id", reader.GetString(0));
+                                updateETA.ExecuteNonQuery();
+                            }
                         }
                     }
                     else
@@ -381,6 +392,14 @@ namespace _213
                                 //StockTransferRecieve frmRecieve = new StockTransferRecieve(userNme, reader.GetString(1), reader.GetString(0));
                                 //frmRecieve.ShowDialog();
                             }
+                            else
+                            {
+                                MessageBox.Show("The estimated arrival date will be delayed with one day.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                SqlCommand updateETA = new SqlCommand("UPDATE Transfers SET eta = @eta WHERE transfer_id = @id",stockConnection);
+                                updateETA.Parameters.AddWithValue("@eta", DateTime.Today.AddDays(1));
+                                updateETA.Parameters.AddWithValue("@id", reader.GetString(0));
+                                updateETA.ExecuteNonQuery();
+                            }
                         }
                     }
                     else
@@ -433,7 +452,7 @@ namespace _213
         {
             try
             {
-                SqlConnection stockConnection = new SqlConnection("Data Source=.;Initial Catalog=stockI.T;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                SqlConnection stockConnection = new SqlConnection("workstation id=StockIT.mssql.somee.com;packet size=4096;user id=GokusGString_SQLLogin_1;pwd=z32rpjumdw;data source=StockIT.mssql.somee.com;persist security info=False;initial catalog=StockIT");
                 stockConnection.Open();
                 count = 0;
                 SqlCommand getID = new SqlCommand("SELECT item_ID, item_name FROM Stock WHERE item_id = @itemID AND branch = @branch AND status = @status", stockConnection);
@@ -449,7 +468,7 @@ namespace _213
                     {
                         while (reader.Read())
                         {
-                            SqlConnection stockConnection2 = new SqlConnection("Data Source=.;Initial Catalog=stockI.T;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                            SqlConnection stockConnection2 = new SqlConnection("workstation id=StockIT.mssql.somee.com;packet size=4096;user id=GokusGString_SQLLogin_1;pwd=z32rpjumdw;data source=StockIT.mssql.somee.com;persist security info=False;initial catalog=StockIT");
                             txbStockTake.AppendText("\r\n" + reader.GetString(1) + "\t" + reader.GetString(0));
                             string id = reader.GetString(0);
                             stockConnection2.Open();
@@ -860,15 +879,39 @@ namespace _213
             DateTime local = DateTime.Now;
 
             gebruik.log(local, userNme, "logout");
-            gebruik.log(local, userNme, "exited application");
+            gebruik.log(local, userNme, "closed application");
 
             Application.Exit();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAdminShow_Click_1(object sender, EventArgs e)
+        {
+            for (int pos = -233; pos < 0; pos++)
+                pnlAdmin.Location = new Point(pos, 0);
         }
 
         private void bgWDetails_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             txbStockTakeReport.AppendText(details);
             txbStockTake.AppendText(details2);
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.F1)
+            {
+                frmManual fm = new frmManual();
+                fm.ShowDialog();
+                return true;    // indicate that you handled this keystroke
+            }
+
+            // Call the base class
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

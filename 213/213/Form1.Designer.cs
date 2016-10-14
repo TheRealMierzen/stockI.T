@@ -61,6 +61,7 @@
             this.saleBtn = new GaryPerkin.UserControls.Buttons.RoundButton();
             this.passTT = new System.Windows.Forms.ToolTip(this.components);
             this.bgWAuthor = new System.ComponentModel.BackgroundWorker();
+            this.button1 = new System.Windows.Forms.Button();
             this.pnlAdmin.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -470,6 +471,17 @@
             this.bgWAuthor.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgWAuthor_DoWork);
             this.bgWAuthor.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgWAuthor_RunWorkerCompleted);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1212, 20);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(94, 46);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "Log out";
+            this.passTT.SetToolTip(this.button1, "Click to return to the login screen");
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -478,6 +490,7 @@
             this.BackgroundImage = global::_213.Properties.Resources._48992;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1353, 820);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.pnlAdmin);
             this.Controls.Add(this.saleBtn);
             this.Controls.Add(this.btnEOD);
@@ -531,6 +544,7 @@
         private GaryPerkin.UserControls.Buttons.RoundButton saleBtn;
         private System.Windows.Forms.ToolTip passTT;
         private System.ComponentModel.BackgroundWorker bgWAuthor;
+        private System.Windows.Forms.Button button1;
     }
 }
 

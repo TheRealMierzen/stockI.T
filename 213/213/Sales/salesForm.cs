@@ -171,7 +171,7 @@ namespace _213
         {
             try
             {
-                //this.TopMost = true;
+                this.TopMost = true;
                 this.FormBorderStyle = FormBorderStyle.None;
                 this.WindowState = FormWindowState.Maximized;
                 totalCost = 0;
@@ -210,6 +210,9 @@ namespace _213
                     btnAdminShow.Visible = false;
 
                 }
+
+                cbxMethodOfPayment.SelectedItem = "Debit";
+                txtProductID_Sale.Focus();
             }
             catch (Exception)
             { }
@@ -595,7 +598,7 @@ namespace _213
                     //Add to log, and update user activity!
                     gebruik other = new gebruik();
                     gebruik.addAction(user);
-                    gebruik.log(DateTime.Now, user, "sale");
+                    gebruik.log(DateTime.Now, user, "made a sale");
                     ////////////////////////////////////////////
 
                     //SAVE PDF///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -612,8 +615,12 @@ namespace _213
                         pdfWarranty = pdfWarranty + totalWarrantyP[b] + " x " + productW[b] + ": " + WarrantyP[b] + "\n";
                     }
 
-                    string pdfTemplate = @"C:\Users\Clarise Bouwer\Documents\coded_Coffee\213\213\Resources\Sale.pdf";//VERANDER!!
-                    string newFile = AppDomain.CurrentDomain.BaseDirectory + @"\" + saleid + ".pdf";
+                    string pdfTemplate = AppDomain.CurrentDomain.BaseDirectory + @"\Sale.pdf";
+
+                    Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + @"\Sales\");
+
+
+                    string newFile = AppDomain.CurrentDomain.BaseDirectory + @"\Sales\" + saleid + ".pdf";
                     PdfReader pdfReader = new PdfReader(pdfTemplate);
                     PdfStamper pdfStamper = new PdfStamper(pdfReader, new FileStream(newFile, FileMode.Create));
 
@@ -677,8 +684,10 @@ namespace _213
             { }
             catch (InvalidCastException)
             { }
-            catch (Exception)
-            { }
+            catch (Exception ef)
+            { 
+                MessageBox.Show(ef.Message);
+            }
 
 
         }
@@ -1060,7 +1069,7 @@ namespace _213
                     //Add to log, and update user activity!
                     gebruik other = new gebruik();
                     gebruik.addAction(user);
-                    gebruik.log(DateTime.Now, user, "custom sale");
+                    gebruik.log(DateTime.Now, user, "sold a custom build");
                     ////////////////////////////////////////////
 
                     btnNewSalecms.Enabled = true;
@@ -1080,8 +1089,8 @@ namespace _213
                         pdfWarranty = pdfWarranty + totalWarrantyP[b] + " x " + productW[b] + ": " + WarrantyP[b] + "\n";
                     }
 
-                    string pdfTemplate = @"C:\Users\Clarise Bouwer\Documents\coded_Coffee\213\213\Resources\Sale.pdf";//VERANDER!!
-                    string newFile = AppDomain.CurrentDomain.BaseDirectory + @"\" + saleid + ".pdf";
+                    string pdfTemplate = AppDomain.CurrentDomain.BaseDirectory + @"\Sale.pdf";
+                    string newFile = AppDomain.CurrentDomain.BaseDirectory + @"\Sales\" + saleid + ".pdf";
                     PdfReader pdfReader = new PdfReader(pdfTemplate);
                     PdfStamper pdfStamper = new PdfStamper(pdfReader, new FileStream(newFile, FileMode.Create));
 
@@ -1493,12 +1502,20 @@ namespace _213
         {
             try
             {
+                wbReceipt.Navigate("about:blank");
+                
+
                 saleid = txtSaleSearch.Text;
-                string filepath = AppDomain.CurrentDomain.BaseDirectory + saleid + ".pdf";
-                if (!string.IsNullOrWhiteSpace(filepath))
+                string filepath = AppDomain.CurrentDomain.BaseDirectory + "Sales" + @"\" + saleid + ".pdf";
+                string filepath2 = @"C:\Users\Marco\Documents\stockI.T\213\213\bin\Debug\Sales\" + saleid + ".pdf";
+                if (File.Exists(filepath))
                 {
-                    wbReceipt.Navigate(@filepath);
+
+                    RenderPdf(filepath);
                     btnPrintSearch.Enabled = true;
+
+                    txtSaleSearch.Clear();
+                    btnPrintSearch.Enabled = false;
                 }
                 else
                 {
@@ -1555,9 +1572,7 @@ namespace _213
 
         private void btnRefreshSearch_Click(object sender, EventArgs e)
         {
-            wbReceipt.Navigate("about:blank");
-            txtSaleSearch.Clear();
-            btnPrintSearch.Enabled = false;
+            
         }
 
         private void btnPrintSearch_Click(object sender, EventArgs e)
@@ -1581,75 +1596,114 @@ namespace _213
                 }
                 else
                 {
-                    txtProductReturn.Clear();
-                    txtSaleReturn.Clear();
-                    //GenerateReturnID///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                    SqlConnection con = new SqlConnection("workstation id=StockIT.mssql.somee.com;packet size=4096;user id=GokusGString_SQLLogin_1;pwd=z32rpjumdw;data source=StockIT.mssql.somee.com;persist security info=False;initial catalog=StockIT");
-                    con.Open();
-                    SqlCommand comm = new SqlCommand(@"SELECT COUNT(*) FROM Returns", con);
-                    if (comm.ExecuteScalar() == null)
-                    {
-                        returnID = 0;
-                    }
-                    else
-                    {
-                        returnID = Convert.ToInt16(comm.ExecuteScalar());
-                        returnID = returnID + 1;
-                    }
-                    con.Close();
-                    //GetDescription///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                    string description;
-                    setItemName(productID);
-                    description = getItemName();
 
-                    //GetCash////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                    double cash;
-                    setItemPrice(productID);
-                    cash = getItemPrice();
-                    //Test Sale//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                    string IDS, result;
-                    int indeks;
-                    SqlConnection connect = new SqlConnection("workstation id=StockIT.mssql.somee.com;packet size=4096;user id=GokusGString_SQLLogin_1;pwd=z32rpjumdw;data source=StockIT.mssql.somee.com;persist security info=False;initial catalog=StockIT");
-                    con.Open();
-                    SqlCommand getIDS = new SqlCommand(@"SELECT item_ids FROM Sales WHERE sale_id = @saleID", con);
-                    getIDS.Parameters.AddWithValue("@saleID", saleID);
-                    if (getIDS.ExecuteScalar() == null)
+                    DateTime sale_date = DateTime.Now.AddDays(-100);
+                    using (SqlConnection con = new SqlConnection("workstation id=StockIT.mssql.somee.com;packet size=4096;user id=GokusGString_SQLLogin_1;pwd=z32rpjumdw;data source=StockIT.mssql.somee.com;persist security info=False;initial catalog=StockIT"))
                     {
-                        MessageBox.Show("There is no such existing sale no: " + saleID);
-                        IDS = "";
-                    }
-                    else
-                    {
-                        IDS = getIDS.ExecuteScalar().ToString();
+                        con.Open();
+
+                        //count = 0;
+                        string cmdstring = "Select sale_date from Sales WHERE sale_id= @id";
+
+                        using (SqlCommand comm = new SqlCommand(cmdstring, con))
+                        {
+                            comm.Parameters.AddWithValue("@id", saleid);
+                            using (var reader = comm.ExecuteReader())
+                            {
+
+                                while (reader.Read())
+                                {
+
+                                    sale_date = reader.GetDateTime(0);
+
+                                }
+
+                            }
+                            con.Close();
+
+
+
+                        }
                     }
 
-                    connect.Close();
-
-                    while (IDS != "")
+                    if ((DateTime.Now.Date - sale_date).TotalDays <= 18)
                     {
-                        indeks = IDS.IndexOf(",");
-                        result = IDS.Substring(0, indeks);
-                        IDS = IDS.Remove(0, indeks + 1);
-                        barcodes.Add(result);
-                    }
-
-                    if (barcodes.Contains(productID) == true)
-                    {
-                        //Add to database////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-                        AddReturn(branch, returnID.ToString(), saleID, productID, description, date, cash);
-                        //Confirm////////////////
-
-                        MessageBox.Show("Return Accepted!" + "\n" + "Give cash: R" + cash.ToString());
-
-                        gebruik.addAction(user);
-                        gebruik.log(DateTime.Now, user, "Refund");
-                        txtSaleReturn.Clear();
                         txtProductReturn.Clear();
+                        txtSaleReturn.Clear();
+                        //GenerateReturnID///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                        SqlConnection con = new SqlConnection("workstation id=StockIT.mssql.somee.com;packet size=4096;user id=GokusGString_SQLLogin_1;pwd=z32rpjumdw;data source=StockIT.mssql.somee.com;persist security info=False;initial catalog=StockIT");
+                        con.Open();
+                        SqlCommand comm = new SqlCommand(@"SELECT COUNT(*) FROM Returns", con);
+                        if (comm.ExecuteScalar() == null)
+                        {
+                            returnID = 0;
+                        }
+                        else
+                        {
+                            returnID = Convert.ToInt16(comm.ExecuteScalar());
+                            returnID = returnID + 1;
+                        }
+                        con.Close();
+                        //GetDescription///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                        string description;
+                        setItemName(productID);
+                        description = getItemName();
+
+                        //GetCash////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                        double cash;
+                        setItemPrice(productID);
+                        cash = getItemPrice();
+                        //Test Sale//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                        string IDS, result;
+                        int indeks;
+                        SqlConnection connect = new SqlConnection("workstation id=StockIT.mssql.somee.com;packet size=4096;user id=GokusGString_SQLLogin_1;pwd=z32rpjumdw;data source=StockIT.mssql.somee.com;persist security info=False;initial catalog=StockIT");
+                        con.Open();
+                        SqlCommand getIDS = new SqlCommand(@"SELECT item_ids FROM Sales WHERE sale_id = @saleID", con);
+                        getIDS.Parameters.AddWithValue("@saleID", saleID);
+                        if (getIDS.ExecuteScalar() == null)
+                        {
+                            MessageBox.Show("There is no such existing sale no: " + saleID);
+                            IDS = "";
+                        }
+                        else
+                        {
+                            IDS = getIDS.ExecuteScalar().ToString();
+                        }
+
+                        connect.Close();
+
+                        while (IDS != "")
+                        {
+                            indeks = IDS.IndexOf(",");
+                            result = IDS.Substring(0, indeks);
+                            IDS = IDS.Remove(0, indeks + 1);
+                            barcodes.Add(result);
+                        }
+
+                        if (barcodes.Contains(productID) == true)
+                        {
+                            //Add to database////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+                            AddReturn(branch, returnID.ToString(), saleID, productID, description, date, cash);
+                            //Confirm////////////////
+
+                            MessageBox.Show("Return Accepted!" + "\n" + "Give cash: R" + cash.ToString());
+
+                            gebruik.addAction(user);
+                            gebruik.log(DateTime.Now, user, "Refund");
+                            txtSaleReturn.Clear();
+                            txtProductReturn.Clear();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Sale does not contain product!");
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Sale does not contain product!");
+
+                        MessageBox.Show("Unfortunately the refund period on this sale has ended.","Info",MessageBoxButtons.OK, MessageBoxIcon.Stop);
+
                     }
                 }
             }
@@ -1744,7 +1798,7 @@ namespace _213
             DateTime local = DateTime.Now;
 
             gebruik.log(local, user, "logout");
-            gebruik.log(local, user, "exited application");
+            gebruik.log(local, user, "closed application");
 
             Application.Exit();
         }
@@ -2261,6 +2315,27 @@ namespace _213
             { }
             catch (Exception)
             { }
+        }
+
+        private void RenderPdf(string filePath)
+        {
+            if (!string.IsNullOrWhiteSpace(filePath))
+            {
+                wbReceipt.Navigate(@filePath);
+            }
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.F1)
+            {
+                frmManual fm = new frmManual();
+                fm.ShowDialog();
+                return true;    // indicate that you handled this keystroke
+            }
+
+            // Call the base class
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

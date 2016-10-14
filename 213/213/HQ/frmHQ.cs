@@ -14,7 +14,7 @@ namespace _213
 {
     public partial class frmHQ : Form
     {
-        private string user, name, id, itemManufacturer, itemBranch, itemManPrice, itemRePrice, itemType, itemWarranty;
+        private string user;
         private string addString = "";
         private int count;
 
@@ -100,6 +100,7 @@ namespace _213
                 pnlOrder.SendToBack();
                 pnlOverview.Visible = false;
                 pnlOverview.SendToBack();
+                txtOutput.Visible = false;
             }
             else if (cbmMainAction.SelectedItem.ToString() == "Orders")
             {
@@ -111,6 +112,7 @@ namespace _213
                 pnlStock.SendToBack();
                 pnlOverview.Visible = false;
                 pnlOverview.SendToBack();
+                txtOutput.Visible = false;
             }
             else if (cbmMainAction.SelectedItem.ToString() == "Overview")
             {
@@ -376,12 +378,13 @@ namespace _213
                         string tempID = itemIDs.Substring(0, pos);
                         itemIDs = itemIDs.Remove(0, pos + 1);
 
-                        cmdStr = "Update Stock set status = @status where item_id = @id";
+                        cmdStr = "Update Stock set status = @status, branch = @branch where item_id = @id";
 
                         using (SqlCommand updateTransfers = new SqlCommand(cmdStr, conn))
                         {
                             updateTransfers.Parameters.AddWithValue("@id", tempID);
                             updateTransfers.Parameters.AddWithValue("@status", "In Transit");
+                            updateTransfers.Parameters.AddWithValue("@branch", "In Transit");
 
                             conn.Open();
                             count = 0;
@@ -1691,6 +1694,7 @@ namespace _213
             pnlReport.BringToFront();
             pnlOverviewActions.Visible = false;
             dtpReport.MaxDate = DateTime.Today.AddDays(-1);
+            txtOutput.Visible = true;
         }
 
         private void btnReportBack_Click(object sender, EventArgs e)
@@ -2256,7 +2260,7 @@ namespace _213
             DateTime local = DateTime.Now;
 
             gebruik.log(local, user, "logout");
-            gebruik.log(local, user, "exited application");
+            gebruik.log(local, user, "closed application");
 
             Application.Exit();
         }
@@ -2275,8 +2279,9 @@ namespace _213
 
         private void frmHQ_Load(object sender, EventArgs e)
         {
-
-            int authLevel;
+            this.TopMost = true;
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
             cbmMainAction.SelectedItem = "Stock";
 
             btnAdminShow.Location = new Point(13, (this.Height) / 2 - 20);
@@ -2297,9 +2302,7 @@ namespace _213
             btnAdmLogout.Size = new Size(62, 62);
             btnExit.Size = new Size(62, 62);
 
-            authLevel =  this.getAuthLevel();
-
-            if (authLevel >= 7)
+            if (Properties.Settings.Default.authLevel >= 7)
             {
                 pnlStock.Visible = true;
                 pnlStockButtons.Visible = true;
@@ -2307,75 +2310,25 @@ namespace _213
                 pnlStockButtons.BringToFront();
                 pnlAddStock.BringToFront();
                 btnAccept.Enabled = false;
+                cmbBranchStockAdd.Enabled = false;
+                txtItemName.Enabled = false;
+                txtManufacturerName.Enabled = false;
+                txtManufacturerPrice.Enabled = false;
+                txtRetailPrice.Enabled = false;
+                txtType.Enabled = false;
+                txtWarranty.Enabled = false;
+                txtItemIDAdd.Enabled = false;
             }
             else
             {
                 cbmMainAction.Visible = false;
                 pnlOverview.Visible = true;
                 pnlOverview.BringToFront();
+                pnlOverviewActions.Visible = true;
+                pnlOverviewActions.BringToFront();
                 btnOverviewReport.Enabled = false;
             }
 
-        }
-
-        private int getAuthLevel()
-        {  
-            try
-            {
-                string cmdStr;
-                int authLevel;
-
-                using (SqlConnection conn = new SqlConnection("workstation id=StockIT.mssql.somee.com;packet size=4096;user id=GokusGString_SQLLogin_1;pwd=z32rpjumdw;data source=StockIT.mssql.somee.com;persist security info=False;initial catalog=StockIT"))
-                {
-                    cmdStr = "Select authLevel from Users where userName = @user";
-
-                    using (SqlCommand getAuthLevel = new SqlCommand(cmdStr, conn))
-                    {
-                        getAuthLevel.Parameters.AddWithValue("@user", user);
-
-                        conn.Open();
-                        count = 0;
-                        authLevel = Convert.ToInt16(getAuthLevel.ExecuteScalar());
-                        conn.Close();
-                    }
-
-                }
-
-                return authLevel;
-            }
-            catch (SqlException se)
-            {
-                if (se.Number == 207)
-                    MessageBox.Show(se.Message);
-
-                if (se.Number == 53)
-                {
-                    gebruik other = new gebruik();
-                    if (other.CheckConnection() && count < 4)
-                    {
-                        count++;
-                        getAuthLevel();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("It appears that you have lost internet connection. Please verify your internet connection and try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            catch (NullReferenceException)
-            {
-                MessageBox.Show("Please ensure that all required fields have been entered.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (InvalidOperationException)
-            {
-                MessageBox.Show("There are no records containing this data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception es)
-            {
-                MessageBox.Show(es.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            return -1; 
         }
 
 
@@ -2388,40 +2341,16 @@ namespace _213
             user = userName;
         }
 
-        public frmHQ(string itemID, string iName, string ibranch, string imanufacturer, string imanPrice, string irePrice, string itype, string iwarranty, string userName)
-        {
-            InitializeComponent();
-            //this.TopMost = true;
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.WindowState = FormWindowState.Maximized;
-            name = iName;
-            id = itemID;
-            itemBranch = ibranch;
-            itemManufacturer = imanufacturer;
-            itemManPrice = imanPrice;
-            itemRePrice = irePrice;
-            itemType = itype;
-            itemWarranty = iwarranty;
-            user = userName;
-
-            if (!pnlRevise.Visible)
-            {
-                pnlRevise.Visible = true;
-                txtItemID.Text = id;
-                txtItemID.Enabled = false;
-                txtName.Text = name;
-                txtManName.Text = itemManufacturer;
-                txtManPrice.Text = itemManPrice;
-                txtRetail.Text = itemRePrice;
-                txtItemType.Text = itemType;
-                cmbBranchUStock.SelectedItem = itemBranch;
-                txtWarrant.Text = itemWarranty;
-            }
-        }
-
         private void btnAdd_Click(object sender, EventArgs e)
         {
             pnlAddStock.Visible = true;
+            cmbBranchStockAdd.Enabled = true;
+            txtItemName.Enabled = true;
+            txtManufacturerName.Enabled = true;
+            txtManufacturerPrice.Enabled = true;
+            txtRetailPrice.Enabled = true;
+            txtType.Enabled = true;
+            txtWarranty.Enabled = true;
             gebruik.fillBranches(cmbBranchStockAdd);
             pnlAddStock.BringToFront();
             pnlRevise.Visible = false;
@@ -2514,7 +2443,7 @@ namespace _213
 
         private void btnRevise_Click(object sender, EventArgs e)
         {
-            frmHQSearch search = new frmHQSearch(user);
+            frmHQSearch search = new frmHQSearch(user, this);
             search.ShowDialog();
             btnUpdate.Enabled = false;
             pnlRevise.Visible = true;
@@ -2593,6 +2522,68 @@ namespace _213
             {
                 MessageBox.Show(es.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        public void setID(string p)
+        {
+            txtItemID.Text = p;
+            txtItemID.Enabled = false;
+        }
+
+        public void setItem(string p)
+        {
+
+            txtName.Text = p;
+
+        }
+
+
+        public void setMan(string p)
+        {
+
+            txtManName.Text = p;
+
+        }
+
+        public void setRet(string p)
+        {
+
+            txtRetail.Text = p;
+
+        }
+
+        public void setType(string p)
+        {
+
+            txtItemType.Text = p;
+
+        }
+
+        public void setWarranty(string p)
+        {
+
+            txtWarrant.Text = p;
+
+        }
+
+        public void setManPrice(string p)
+        {
+
+            txtManPrice.Text = p;
+
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.F1)
+            {
+                frmManual fm = new frmManual();
+                fm.ShowDialog();
+                return true;    // indicate that you handled this keystroke
+            }
+
+            // Call the base class
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

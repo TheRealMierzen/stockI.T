@@ -246,12 +246,13 @@ namespace _213
             // cbmMainAction
             // 
             this.cbmMainAction.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbmMainAction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbmMainAction.FormattingEnabled = true;
             this.cbmMainAction.Items.AddRange(new object[] {
             "Stock",
             "Orders",
             "Overview"});
-            this.cbmMainAction.Location = new System.Drawing.Point(235, 166);
+            this.cbmMainAction.Location = new System.Drawing.Point(218, 152);
             this.cbmMainAction.Margin = new System.Windows.Forms.Padding(4);
             this.cbmMainAction.Name = "cbmMainAction";
             this.cbmMainAction.Size = new System.Drawing.Size(220, 24);
@@ -264,7 +265,7 @@ namespace _213
             this.pnlStock.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlStock.Controls.Add(this.pnlAddStock);
             this.pnlStock.Controls.Add(this.pnlStockButtons);
-            this.pnlStock.Location = new System.Drawing.Point(235, 263);
+            this.pnlStock.Location = new System.Drawing.Point(218, 249);
             this.pnlStock.Margin = new System.Windows.Forms.Padding(4);
             this.pnlStock.Name = "pnlStock";
             this.pnlStock.Size = new System.Drawing.Size(941, 391);
@@ -537,7 +538,7 @@ namespace _213
             this.pnlOrder.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlOrder.Controls.Add(this.pnlAddOrders);
             this.pnlOrder.Controls.Add(this.pnlOrdersActions);
-            this.pnlOrder.Location = new System.Drawing.Point(235, 263);
+            this.pnlOrder.Location = new System.Drawing.Point(218, 249);
             this.pnlOrder.Margin = new System.Windows.Forms.Padding(4);
             this.pnlOrder.Name = "pnlOrder";
             this.pnlOrder.Size = new System.Drawing.Size(941, 391);
@@ -827,7 +828,7 @@ namespace _213
             this.pnlUpdateOrders.Controls.Add(this.txtCostUp);
             this.pnlUpdateOrders.Controls.Add(this.txtSupplierUp);
             this.pnlUpdateOrders.Controls.Add(this.txtItemsUp);
-            this.pnlUpdateOrders.Location = new System.Drawing.Point(700, 268);
+            this.pnlUpdateOrders.Location = new System.Drawing.Point(683, 254);
             this.pnlUpdateOrders.Margin = new System.Windows.Forms.Padding(4);
             this.pnlUpdateOrders.Name = "pnlUpdateOrders";
             this.pnlUpdateOrders.Size = new System.Drawing.Size(468, 382);
@@ -1044,7 +1045,7 @@ namespace _213
             this.pnlOverview.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlOverview.Controls.Add(this.pnlOverviewActions);
             this.pnlOverview.Controls.Add(this.dgOverview);
-            this.pnlOverview.Location = new System.Drawing.Point(235, 263);
+            this.pnlOverview.Location = new System.Drawing.Point(218, 249);
             this.pnlOverview.Margin = new System.Windows.Forms.Padding(4);
             this.pnlOverview.Name = "pnlOverview";
             this.pnlOverview.Size = new System.Drawing.Size(941, 459);
@@ -1169,7 +1170,7 @@ namespace _213
             this.pnlReport.Controls.Add(this.btnOrderDetail);
             this.pnlReport.Controls.Add(this.btnStockDetail);
             this.pnlReport.Controls.Add(this.btnDetailed);
-            this.pnlReport.Location = new System.Drawing.Point(238, 267);
+            this.pnlReport.Location = new System.Drawing.Point(221, 253);
             this.pnlReport.Margin = new System.Windows.Forms.Padding(4);
             this.pnlReport.Name = "pnlReport";
             this.pnlReport.Size = new System.Drawing.Size(934, 451);
@@ -1223,6 +1224,7 @@ namespace _213
             this.txtOutput.Margin = new System.Windows.Forms.Padding(4);
             this.txtOutput.Multiline = true;
             this.txtOutput.Name = "txtOutput";
+            this.txtOutput.ReadOnly = true;
             this.txtOutput.Size = new System.Drawing.Size(491, 446);
             this.txtOutput.TabIndex = 6;
             this.toolTip1.SetToolTip(this.txtOutput, "Reports will be dislpayed here.");
@@ -1311,7 +1313,7 @@ namespace _213
             this.pnlSalesOverview.Controls.Add(this.cmbSalesBranch);
             this.pnlSalesOverview.Controls.Add(this.chbSalesBranch);
             this.pnlSalesOverview.Controls.Add(this.btnSalesFilter);
-            this.pnlSalesOverview.Location = new System.Drawing.Point(238, 267);
+            this.pnlSalesOverview.Location = new System.Drawing.Point(221, 253);
             this.pnlSalesOverview.Margin = new System.Windows.Forms.Padding(4);
             this.pnlSalesOverview.Name = "pnlSalesOverview";
             this.pnlSalesOverview.Size = new System.Drawing.Size(455, 382);
@@ -1400,7 +1402,7 @@ namespace _213
             this.pnlOrderOverview.Controls.Add(this.cmbOrderBranch);
             this.pnlOrderOverview.Controls.Add(this.chbOrderBranch);
             this.pnlOrderOverview.Controls.Add(this.btnOrderFilter);
-            this.pnlOrderOverview.Location = new System.Drawing.Point(238, 267);
+            this.pnlOrderOverview.Location = new System.Drawing.Point(221, 253);
             this.pnlOrderOverview.Margin = new System.Windows.Forms.Padding(4);
             this.pnlOrderOverview.Name = "pnlOrderOverview";
             this.pnlOrderOverview.Size = new System.Drawing.Size(455, 382);
@@ -1547,7 +1549,7 @@ namespace _213
             this.pnlEmployeeOverview.Controls.Add(this.cmbEmployeeBranch);
             this.pnlEmployeeOverview.Controls.Add(this.chbEmployeeBranch);
             this.pnlEmployeeOverview.Controls.Add(this.btnEmployeeFilter);
-            this.pnlEmployeeOverview.Location = new System.Drawing.Point(238, 267);
+            this.pnlEmployeeOverview.Location = new System.Drawing.Point(221, 253);
             this.pnlEmployeeOverview.Margin = new System.Windows.Forms.Padding(4);
             this.pnlEmployeeOverview.Name = "pnlEmployeeOverview";
             this.pnlEmployeeOverview.Size = new System.Drawing.Size(455, 382);
@@ -1652,7 +1654,7 @@ namespace _213
             this.pnlTechnicalOverview.Controls.Add(this.cmbTechnicalBranch);
             this.pnlTechnicalOverview.Controls.Add(this.chbTechnicalBranch);
             this.pnlTechnicalOverview.Controls.Add(this.btnTechnicalFilter);
-            this.pnlTechnicalOverview.Location = new System.Drawing.Point(238, 267);
+            this.pnlTechnicalOverview.Location = new System.Drawing.Point(221, 253);
             this.pnlTechnicalOverview.Margin = new System.Windows.Forms.Padding(4);
             this.pnlTechnicalOverview.Name = "pnlTechnicalOverview";
             this.pnlTechnicalOverview.Size = new System.Drawing.Size(455, 382);
@@ -1736,7 +1738,7 @@ namespace _213
             this.pnlStockFilter.Controls.Add(this.cmbBranch);
             this.pnlStockFilter.Controls.Add(this.chbBranch);
             this.pnlStockFilter.Controls.Add(this.btnStockFilter);
-            this.pnlStockFilter.Location = new System.Drawing.Point(238, 267);
+            this.pnlStockFilter.Location = new System.Drawing.Point(221, 253);
             this.pnlStockFilter.Margin = new System.Windows.Forms.Padding(4);
             this.pnlStockFilter.Name = "pnlStockFilter";
             this.pnlStockFilter.Size = new System.Drawing.Size(455, 382);
@@ -1917,7 +1919,7 @@ namespace _213
             this.pnlTransfer.Controls.Add(this.label17);
             this.pnlTransfer.Controls.Add(this.label16);
             this.pnlTransfer.Controls.Add(this.txtItemIDs);
-            this.pnlTransfer.Location = new System.Drawing.Point(700, 268);
+            this.pnlTransfer.Location = new System.Drawing.Point(683, 254);
             this.pnlTransfer.Margin = new System.Windows.Forms.Padding(4);
             this.pnlTransfer.Name = "pnlTransfer";
             this.pnlTransfer.Size = new System.Drawing.Size(467, 382);
@@ -2016,7 +2018,7 @@ namespace _213
             this.pnlRevise.Controls.Add(this.txtManPrice);
             this.pnlRevise.Controls.Add(this.txtManName);
             this.pnlRevise.Controls.Add(this.txtName);
-            this.pnlRevise.Location = new System.Drawing.Point(700, 268);
+            this.pnlRevise.Location = new System.Drawing.Point(683, 254);
             this.pnlRevise.Margin = new System.Windows.Forms.Padding(4);
             this.pnlRevise.Name = "pnlRevise";
             this.pnlRevise.Size = new System.Drawing.Size(467, 382);
@@ -2223,7 +2225,7 @@ namespace _213
             // btnMainBack
             // 
             this.btnMainBack.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnMainBack.Location = new System.Drawing.Point(979, 166);
+            this.btnMainBack.Location = new System.Drawing.Point(962, 152);
             this.btnMainBack.Margin = new System.Windows.Forms.Padding(4);
             this.btnMainBack.Name = "btnMainBack";
             this.btnMainBack.Size = new System.Drawing.Size(197, 28);

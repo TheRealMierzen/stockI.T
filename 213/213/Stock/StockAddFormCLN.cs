@@ -183,8 +183,7 @@ namespace _213
                         SqlCommand stockCount = new SqlCommand("SELECT COUNT(item_id) FROM Stock", stockConnection);
                         int currentS = Convert.ToInt16(stockCount.ExecuteScalar());
                         SqlCommand stockCap = new SqlCommand("SELECT branch_capacity FROM branches WHERE branch_location = @location", stockConnection);
-                        stockCap.Parameters.AddWithValue("@location", "Pretoria");
-                        //stockCap.Parameters.AddWithValue("@location", Properties.Settings.Default.Branch);
+                        stockCap.Parameters.AddWithValue("@location", Properties.Settings.Default.Branch);
                         int currentC = Convert.ToInt32(stockCap.ExecuteScalar());
 
                         if (currentS < currentC)
@@ -209,6 +208,8 @@ namespace _213
                             stockConnection.Close();
                             txbBrandAddCLN.Clear();
                             txbDescAddCLN.Clear();
+                            txbPriceRetailAddCLN.Clear();
+                            txbItemID.Clear();
                             cmbWarrantyADD.SelectedItem = null;
                             cmbTypeAddCLN.SelectedItem = null;
                             txtManfacturerPriceCLN.Clear();
@@ -236,7 +237,7 @@ namespace _213
                         if (other.CheckConnection() && count < 4)
                         {
                             count = count + 1;
-                            btnConfirmAddCLN.PerformClick();
+                           // btnConfirmAddCLN.PerformClick();
                         }
                         if(count == 3)
                             MessageBox.Show("Error connectiong to Database, Please check internet connection.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

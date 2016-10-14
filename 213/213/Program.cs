@@ -16,12 +16,12 @@ namespace _213
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            try
-            {
+           // try
+           // {
                 Application.Run(new loginForm());
-            }
-            catch (Exception)
-            { }
+           // }
+           // catch (Exception)
+           // { }
         }
     }
 }

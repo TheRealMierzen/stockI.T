@@ -259,10 +259,8 @@
             "New Sale",
             "New Custom Sale",
             "Returns",
-            "Search Previous Sale",
-            "Search Stock",
-            "Place Order"});
-            this.cmbSalesMenu.Location = new System.Drawing.Point(387, 216);
+            "Search Previous Sale"});
+            this.cmbSalesMenu.Location = new System.Drawing.Point(225, 152);
             this.cmbSalesMenu.Margin = new System.Windows.Forms.Padding(4);
             this.cmbSalesMenu.Name = "cmbSalesMenu";
             this.cmbSalesMenu.Size = new System.Drawing.Size(160, 24);
@@ -279,7 +277,7 @@
             this.pnlReturns.Controls.Add(this.btnRefund);
             this.pnlReturns.Controls.Add(this.txtProductReturn);
             this.pnlReturns.Controls.Add(this.lblIDReturn);
-            this.pnlReturns.Location = new System.Drawing.Point(391, 270);
+            this.pnlReturns.Location = new System.Drawing.Point(229, 206);
             this.pnlReturns.Margin = new System.Windows.Forms.Padding(4);
             this.pnlReturns.Name = "pnlReturns";
             this.pnlReturns.Size = new System.Drawing.Size(239, 270);
@@ -328,7 +326,7 @@
             this.pnlCompleteCustom.Controls.Add(this.txtTotalcmsPaid);
             this.pnlCompleteCustom.Controls.Add(this.cmbPaymentcms);
             this.pnlCompleteCustom.Controls.Add(this.lblcmsPaidMeth);
-            this.pnlCompleteCustom.Location = new System.Drawing.Point(391, 270);
+            this.pnlCompleteCustom.Location = new System.Drawing.Point(229, 206);
             this.pnlCompleteCustom.Margin = new System.Windows.Forms.Padding(4);
             this.pnlCompleteCustom.Name = "pnlCompleteCustom";
             this.pnlCompleteCustom.Size = new System.Drawing.Size(381, 278);
@@ -403,7 +401,7 @@
             this.pnlCustoms.Controls.Add(this.btnCompletecms);
             this.pnlCustoms.Controls.Add(this.lbxCustomReceipt);
             this.pnlCustoms.Controls.Add(this.lblCmID);
-            this.pnlCustoms.Location = new System.Drawing.Point(391, 270);
+            this.pnlCustoms.Location = new System.Drawing.Point(229, 206);
             this.pnlCustoms.Margin = new System.Windows.Forms.Padding(4);
             this.pnlCustoms.Name = "pnlCustoms";
             this.pnlCustoms.Size = new System.Drawing.Size(557, 415);
@@ -524,7 +522,7 @@
             this.pnlCompleteSale.Controls.Add(this.txtPaid);
             this.pnlCompleteSale.Controls.Add(this.cbxMethodOfPayment);
             this.pnlCompleteSale.Controls.Add(this.lblMethodOfPayment_Sales);
-            this.pnlCompleteSale.Location = new System.Drawing.Point(391, 270);
+            this.pnlCompleteSale.Location = new System.Drawing.Point(229, 206);
             this.pnlCompleteSale.Margin = new System.Windows.Forms.Padding(4);
             this.pnlCompleteSale.Name = "pnlCompleteSale";
             this.pnlCompleteSale.Size = new System.Drawing.Size(381, 254);
@@ -594,7 +592,7 @@
             this.pnlPrevSaleCancel.Controls.Add(this.txtSaleSearch);
             this.pnlPrevSaleCancel.Controls.Add(this.btnRefreshSearch);
             this.pnlPrevSaleCancel.Controls.Add(this.btnSearch);
-            this.pnlPrevSaleCancel.Location = new System.Drawing.Point(391, 270);
+            this.pnlPrevSaleCancel.Location = new System.Drawing.Point(229, 206);
             this.pnlPrevSaleCancel.Margin = new System.Windows.Forms.Padding(4);
             this.pnlPrevSaleCancel.Name = "pnlPrevSaleCancel";
             this.pnlPrevSaleCancel.Size = new System.Drawing.Size(537, 382);
@@ -665,7 +663,7 @@
             // btnSalesBack
             // 
             this.btnSalesBack.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSalesBack.Location = new System.Drawing.Point(1139, 216);
+            this.btnSalesBack.Location = new System.Drawing.Point(977, 152);
             this.btnSalesBack.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalesBack.Name = "btnSalesBack";
             this.btnSalesBack.Size = new System.Drawing.Size(100, 28);
@@ -687,7 +685,7 @@
             this.pnlAddSale.Controls.Add(this.btnCompleteSale);
             this.pnlAddSale.Controls.Add(this.lbxSaleReceipt);
             this.pnlAddSale.Controls.Add(this.lblSaleItem);
-            this.pnlAddSale.Location = new System.Drawing.Point(387, 265);
+            this.pnlAddSale.Location = new System.Drawing.Point(225, 201);
             this.pnlAddSale.Margin = new System.Windows.Forms.Padding(4);
             this.pnlAddSale.Name = "pnlAddSale";
             this.pnlAddSale.Size = new System.Drawing.Size(852, 292);

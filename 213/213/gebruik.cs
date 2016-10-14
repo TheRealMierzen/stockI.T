@@ -314,6 +314,8 @@ namespace _213
                         comm.Parameters.AddWithValue("@user", username);
                         level = (Int16)comm.ExecuteScalar();
 
+                        Properties.Settings.Default.authLevel = level;
+
                         if (level == 10)
                             return true;
                         else
@@ -364,7 +366,7 @@ namespace _213
             catch (WebException)
             {
 
-                //MessageBox.Show("An error occurred during the " + we.TargetSite + " process. Please verify the entered information and try again. If the problem persists, please contact our support team: blahblahsuppot \r\n" + we.Message, "Error");
+                //MessageBox.Show("An error occurred during the " + we.TargetSite + " process. Please verify the entered information and try again. If the problem persists, please contact our support team: codedCoffeeTest@gmail.comsuppot \r\n" + we.Message, "Error");
                 return "";
 
             }
@@ -731,7 +733,34 @@ namespace _213
                         while (dr.Read())
                         {
 
-                            last = dr.GetInt32(0);
+                            if (!dr.IsDBNull(0))
+                            {
+
+                                try
+                                {
+                                    last = dr.GetInt32(0);
+                                }
+                                catch (InvalidCastException)
+                                {
+
+                                    string l = dr.GetString(0);
+                                    last = Convert.ToInt32(l) + 1;
+
+                                }
+                                catch (NullReferenceException)
+                                {
+
+                                    last = 0;
+
+                                }
+                            }
+                            else
+                            {
+
+                                last = 0;
+                                break;
+
+                            }
 
                         }
                         dr.Close();
@@ -745,7 +774,7 @@ namespace _213
             catch(Exception e)
             {
 
-                MessageBox.Show("An error occurred during the " + e.TargetSite + " process. Please verify the entered information and try again. If the problem persists, please contact our support team: blahblahsuppot \r\n" + e.Message, "Error");
+                MessageBox.Show("An error occurred during the " + e.TargetSite + " process. Please verify the entered information and try again. If the problem persists, please contact our support team: codedCoffeeTest@gmail.comsuppot \r\n" + e.Message, "Error");
                 return -1;
 
             }
@@ -785,7 +814,7 @@ namespace _213
             catch(Exception e)
             {
 
-                MessageBox.Show("An error occurred during the " + e.TargetSite + " process. Please verify the entered information and try again. If the problem persists, please contact our support team: blahblahsuppot \r\n" + e.Message, "Error");
+                MessageBox.Show("An error occurred during the " + e.TargetSite + " process. Please verify the entered information and try again. If the problem persists, please contact our support team: codedCoffeeTest@gmail.comsuppot \r\n" + e.Message, "Error");
                 return "";
 
             }

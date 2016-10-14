@@ -17,12 +17,15 @@ namespace _213
         private int count;
         private string user;
 
-        public frmHQSearch(string userName)
+        public frmHQSearch(string userName, frmHQ p)
         {
             InitializeComponent();
             this.TopMost = true;
             user = userName;
+            parent = p;
         }
+
+        private frmHQ parent;
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
@@ -106,8 +109,17 @@ namespace _213
 
                         conn.Close();
 
+                        warranty = warranty.Substring(0, 1);
+
                         btnAccept.Enabled = true;
-                        frmHQ hq = new frmHQ(id, itemName, branch, manufacturer, manPrice, rePrice, type, warranty, user);
+                        parent.setID(id);
+                        parent.setMan(manufacturer);
+                        parent.setManPrice(manPrice);
+                        parent.setRet(rePrice);
+                        parent.setItem(itemName);
+                        parent.setType(type);
+                        parent.setWarranty(warranty);
+
                         this.Close();
 
                     }

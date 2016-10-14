@@ -52,11 +52,11 @@
             this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button2.Enabled = false;
-            this.button2.Location = new System.Drawing.Point(396, 218);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.MaximumSize = new System.Drawing.Size(147, 44);
+            this.button2.Location = new System.Drawing.Point(528, 268);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button2.MaximumSize = new System.Drawing.Size(196, 54);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(74, 22);
+            this.button2.Size = new System.Drawing.Size(99, 27);
             this.button2.TabIndex = 5;
             this.button2.Text = "Exit";
             this.passTT.SetToolTip(this.button2, "Click to exit stockI.T");
@@ -68,11 +68,11 @@
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(309, 218);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.MaximumSize = new System.Drawing.Size(147, 44);
+            this.button1.Location = new System.Drawing.Point(412, 268);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.MaximumSize = new System.Drawing.Size(196, 54);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(74, 22);
+            this.button1.Size = new System.Drawing.Size(99, 27);
             this.button1.TabIndex = 4;
             this.button1.Text = "Login";
             this.passTT.SetToolTip(this.button1, "Click to log in with your credentials");
@@ -84,10 +84,10 @@
             // 
             this.btnCreate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCreate.Enabled = false;
-            this.btnCreate.Location = new System.Drawing.Point(309, 218);
-            this.btnCreate.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCreate.Location = new System.Drawing.Point(412, 268);
+            this.btnCreate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(74, 22);
+            this.btnCreate.Size = new System.Drawing.Size(99, 27);
             this.btnCreate.TabIndex = 4;
             this.btnCreate.Text = "Create User";
             this.passTT.SetToolTip(this.btnCreate, "Click to create the administrative account");
@@ -108,10 +108,10 @@
             // btnLForgotPass
             // 
             this.btnLForgotPass.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnLForgotPass.Location = new System.Drawing.Point(475, 153);
-            this.btnLForgotPass.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btnLForgotPass.Location = new System.Drawing.Point(633, 188);
+            this.btnLForgotPass.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnLForgotPass.Name = "btnLForgotPass";
-            this.btnLForgotPass.Size = new System.Drawing.Size(21, 23);
+            this.btnLForgotPass.Size = new System.Drawing.Size(28, 28);
             this.btnLForgotPass.TabIndex = 2;
             this.btnLForgotPass.Text = "?";
             this.passTT.SetToolTip(this.btnLForgotPass, "Forgot your password?\r\n\r\nConsult your password email for your password.\r\n\r\nLost t" +
@@ -126,12 +126,12 @@
             // 
             this.txtLPass.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtLPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.txtLPass.Location = new System.Drawing.Point(309, 155);
-            this.txtLPass.Margin = new System.Windows.Forms.Padding(2);
+            this.txtLPass.Location = new System.Drawing.Point(412, 191);
+            this.txtLPass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtLPass.MaxLength = 8;
             this.txtLPass.Name = "txtLPass";
             this.txtLPass.PasswordChar = '*';
-            this.txtLPass.Size = new System.Drawing.Size(162, 22);
+            this.txtLPass.Size = new System.Drawing.Size(215, 22);
             this.txtLPass.TabIndex = 2;
             this.passTT.SetToolTip(this.txtLPass, "Enter your stockI.T password");
             this.txtLPass.WaterMarkColor = System.Drawing.Color.Gray;
@@ -142,11 +142,11 @@
             // 
             this.txtLEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtLEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.txtLEmail.Location = new System.Drawing.Point(309, 190);
-            this.txtLEmail.Margin = new System.Windows.Forms.Padding(2);
+            this.txtLEmail.Location = new System.Drawing.Point(412, 234);
+            this.txtLEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtLEmail.MaxLength = 254;
             this.txtLEmail.Name = "txtLEmail";
-            this.txtLEmail.Size = new System.Drawing.Size(162, 22);
+            this.txtLEmail.Size = new System.Drawing.Size(215, 22);
             this.txtLEmail.TabIndex = 3;
             this.passTT.SetToolTip(this.txtLEmail, "Enter your email address you wish to use for stockI.T");
             this.txtLEmail.Visible = false;
@@ -158,11 +158,11 @@
             // 
             this.textbox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textbox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.textbox1.Location = new System.Drawing.Point(309, 119);
-            this.textbox1.Margin = new System.Windows.Forms.Padding(2);
+            this.textbox1.Location = new System.Drawing.Point(412, 146);
+            this.textbox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textbox1.MaxLength = 50;
             this.textbox1.Name = "textbox1";
-            this.textbox1.Size = new System.Drawing.Size(162, 22);
+            this.textbox1.Size = new System.Drawing.Size(215, 22);
             this.textbox1.TabIndex = 1;
             this.passTT.SetToolTip(this.textbox1, "Enter your stockI.T username");
             this.textbox1.WaterMarkColor = System.Drawing.Color.Gray;
@@ -175,8 +175,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(286, 46);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(381, 57);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(283, 36);
             this.label1.TabIndex = 0;
@@ -193,12 +192,12 @@
             this.lblRemaining.AutoSize = true;
             this.lblRemaining.BackColor = System.Drawing.SystemColors.Window;
             this.lblRemaining.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.lblRemaining.Location = new System.Drawing.Point(397, 158);
-            this.lblRemaining.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblRemaining.Location = new System.Drawing.Point(529, 194);
             this.lblRemaining.Name = "lblRemaining";
-            this.lblRemaining.Size = new System.Drawing.Size(73, 15);
+            this.lblRemaining.Size = new System.Drawing.Size(82, 17);
             this.lblRemaining.TabIndex = 0;
             this.lblRemaining.Text = "8 remaining";
+            this.lblRemaining.Click += new System.EventHandler(this.lblRemaining_Click);
             // 
             // bgWLogin
             // 
@@ -218,10 +217,10 @@
             // loginProgress
             // 
             this.loginProgress.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.loginProgress.Location = new System.Drawing.Point(309, 155);
-            this.loginProgress.Margin = new System.Windows.Forms.Padding(2);
+            this.loginProgress.Location = new System.Drawing.Point(412, 191);
+            this.loginProgress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.loginProgress.Name = "loginProgress";
-            this.loginProgress.Size = new System.Drawing.Size(161, 22);
+            this.loginProgress.Size = new System.Drawing.Size(215, 27);
             this.loginProgress.TabIndex = 0;
             this.loginProgress.Visible = false;
             // 
@@ -238,13 +237,13 @@
             // loginForm
             // 
             this.AcceptButton = this.button1;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::_213.Properties.Resources._48992;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.button2;
-            this.ClientSize = new System.Drawing.Size(715, 363);
+            this.ClientSize = new System.Drawing.Size(953, 447);
             this.Controls.Add(this.loginProgress);
             this.Controls.Add(this.lblRemaining);
             this.Controls.Add(this.txtLPass);
@@ -256,7 +255,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "loginForm";
             this.Text = "stockI.T";
             this.Load += new System.EventHandler(this.loginForm_Load);

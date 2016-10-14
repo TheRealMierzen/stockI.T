@@ -589,7 +589,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 119F));
             this.tableLayoutPanel1.Controls.Add(this.cbxOrders, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnBack, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(45, 49);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(45, 162);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
@@ -620,7 +620,7 @@
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1045F));
             this.tableLayoutPanel2.Controls.Add(this.gpxOrders, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(45, 109);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(45, 222);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
@@ -772,7 +772,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1131, 811);
+            this.ClientSize = new System.Drawing.Size(1131, 1037);
             this.Controls.Add(this.pnlAdmin);
             this.Controls.Add(this.btnAdminShow);
             this.Controls.Add(this.tableLayoutPanel2);
