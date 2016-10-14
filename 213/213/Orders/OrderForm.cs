@@ -142,7 +142,6 @@ namespace _213
 
         private void OrderForm_Load(object sender, EventArgs e)
         {
-            this.TopMost = true;
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
 

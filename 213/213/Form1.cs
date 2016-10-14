@@ -482,5 +482,77 @@ namespace _213
             // Call the base class
             return base.ProcessCmdKey(ref msg, keyData);
         }
+
+        private void button1_Click_3(object sender, EventArgs e)
+        {
+            DateTime local = DateTime.Now;
+
+            gebruik.log(local, user, "logout");
+
+
+            login.Show();
+            this.Close();
+            login.TopMost = true;
+        }
+
+        private void hqBtn_MouseEnter(object sender, EventArgs e)
+        {
+            hqBtn.BevelDepth = 4;
+            hqBtn.BevelHeight = 2;
+        }
+
+        private void stockBtn_MouseEnter(object sender, EventArgs e)
+        {
+            stockBtn.BevelDepth = 4;
+            stockBtn.BevelHeight = 2;
+        }
+
+        private void btnEOD_MouseEnter(object sender, EventArgs e)
+        {
+            btnEOD.BevelDepth = 4;
+            btnEOD.BevelHeight = 2;
+        }
+
+        private void TechBtn_MouseEnter(object sender, EventArgs e)
+        {
+            TechBtn.BevelDepth = 4;
+            TechBtn.BevelHeight = 2;
+        }
+
+        private void btnOrders_MouseEnter(object sender, EventArgs e)
+        {
+            btnOrders.BevelDepth = 4;
+            btnOrders.BevelHeight = 2;
+        }
+
+        private void hqBtn_MouseLeave(object sender, EventArgs e)
+        {
+            hqBtn.BevelDepth = 0;
+            hqBtn.BevelHeight = 0;
+        }
+
+        private void stockBtn_MouseLeave(object sender, EventArgs e)
+        {
+            stockBtn.BevelDepth = 0;
+            stockBtn.BevelHeight = 0;
+        }
+
+        private void btnEOD_MouseLeave(object sender, EventArgs e)
+        {
+            btnEOD.BevelDepth = 0;
+            btnEOD.BevelHeight = 0;
+        }
+
+        private void TechBtn_MouseLeave(object sender, EventArgs e)
+        {
+            TechBtn.BevelDepth = 0;
+            TechBtn.BevelHeight = 0;
+        }
+
+        private void btnOrders_MouseLeave(object sender, EventArgs e)
+        {
+            btnOrders.BevelDepth = 0;
+            btnOrders.BevelHeight = 0;
+        }
     }
 }

@@ -20,7 +20,6 @@ namespace _213
         public frmHQSearch(string userName, frmHQ p)
         {
             InitializeComponent();
-            this.TopMost = true;
             user = userName;
             parent = p;
         }

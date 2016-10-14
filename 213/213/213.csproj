@@ -56,10 +56,11 @@
     <ApplicationIcon>coffee_icon_png_29_hbi_icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>8FB8503F0BD54DB333E37F94BA7ACD134BE9EF67</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>FE0684EE332307067BFC11972F2550EB98A2160C</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>213_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>

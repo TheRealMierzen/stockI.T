@@ -60,8 +60,8 @@
             this.btnEOD = new GaryPerkin.UserControls.Buttons.RoundButton();
             this.saleBtn = new GaryPerkin.UserControls.Buttons.RoundButton();
             this.passTT = new System.Windows.Forms.ToolTip(this.components);
+            this.logout = new System.Windows.Forms.Button();
             this.bgWAuthor = new System.ComponentModel.BackgroundWorker();
-            this.button1 = new System.Windows.Forms.Button();
             this.pnlAdmin.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -383,6 +383,8 @@
             this.stockBtn.Text = "Stock";
             this.stockBtn.UseVisualStyleBackColor = false;
             this.stockBtn.Click += new System.EventHandler(this.roundButton4_Click);
+            this.stockBtn.MouseEnter += new System.EventHandler(this.stockBtn_MouseEnter);
+            this.stockBtn.MouseLeave += new System.EventHandler(this.stockBtn_MouseLeave);
             // 
             // hqBtn
             // 
@@ -397,6 +399,8 @@
             this.hqBtn.Text = "Headquarters";
             this.hqBtn.UseVisualStyleBackColor = false;
             this.hqBtn.Click += new System.EventHandler(this.roundButton6_Click);
+            this.hqBtn.MouseEnter += new System.EventHandler(this.hqBtn_MouseEnter);
+            this.hqBtn.MouseLeave += new System.EventHandler(this.hqBtn_MouseLeave);
             // 
             // btnOrders
             // 
@@ -411,6 +415,8 @@
             this.btnOrders.Text = "Orders";
             this.btnOrders.UseVisualStyleBackColor = false;
             this.btnOrders.Click += new System.EventHandler(this.roundButton3_Click);
+            this.btnOrders.MouseEnter += new System.EventHandler(this.btnOrders_MouseEnter);
+            this.btnOrders.MouseLeave += new System.EventHandler(this.btnOrders_MouseLeave);
             // 
             // TechBtn
             // 
@@ -425,6 +431,8 @@
             this.TechBtn.Text = "Technical";
             this.TechBtn.UseVisualStyleBackColor = false;
             this.TechBtn.Click += new System.EventHandler(this.roundButton5_Click);
+            this.TechBtn.MouseEnter += new System.EventHandler(this.TechBtn_MouseEnter);
+            this.TechBtn.MouseLeave += new System.EventHandler(this.TechBtn_MouseLeave);
             // 
             // btnEOD
             // 
@@ -439,6 +447,8 @@
             this.btnEOD.Text = "End of day";
             this.btnEOD.UseVisualStyleBackColor = false;
             this.btnEOD.Click += new System.EventHandler(this.roundButton2_Click);
+            this.btnEOD.MouseEnter += new System.EventHandler(this.btnEOD_MouseEnter);
+            this.btnEOD.MouseLeave += new System.EventHandler(this.btnEOD_MouseLeave);
             // 
             // saleBtn
             // 
@@ -466,21 +476,23 @@
             this.passTT.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.passTT.ToolTipTitle = "Admin Help";
             // 
+            // logout
+            // 
+            this.logout.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.logout.Location = new System.Drawing.Point(1212, 20);
+            this.logout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.logout.Name = "logout";
+            this.logout.Size = new System.Drawing.Size(94, 46);
+            this.logout.TabIndex = 16;
+            this.logout.Text = "Log out";
+            this.passTT.SetToolTip(this.logout, "Click to return to the login screen");
+            this.logout.UseVisualStyleBackColor = true;
+            this.logout.Click += new System.EventHandler(this.button1_Click_3);
+            // 
             // bgWAuthor
             // 
             this.bgWAuthor.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgWAuthor_DoWork);
             this.bgWAuthor.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgWAuthor_RunWorkerCompleted);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1212, 20);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 46);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Log out";
-            this.passTT.SetToolTip(this.button1, "Click to return to the login screen");
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -490,7 +502,7 @@
             this.BackgroundImage = global::_213.Properties.Resources._48992;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1353, 820);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.logout);
             this.Controls.Add(this.pnlAdmin);
             this.Controls.Add(this.saleBtn);
             this.Controls.Add(this.btnEOD);
@@ -544,7 +556,7 @@
         private GaryPerkin.UserControls.Buttons.RoundButton saleBtn;
         private System.Windows.Forms.ToolTip passTT;
         private System.ComponentModel.BackgroundWorker bgWAuthor;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button logout;
     }
 }
 

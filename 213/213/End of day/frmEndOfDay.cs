@@ -246,7 +246,7 @@ namespace _213
         {
             try
             {
-                this.TopMost = true;
+
                 this.FormBorderStyle = FormBorderStyle.None;
                 this.WindowState = FormWindowState.Maximized;
 

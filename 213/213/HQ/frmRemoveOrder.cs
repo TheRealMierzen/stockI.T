@@ -21,13 +21,11 @@ namespace _213
         public frmRemoveOrder()
         {
             InitializeComponent();
-            this.TopMost = true;
         }
 
         public frmRemoveOrder(string userName)
         {
             InitializeComponent();
-            this.TopMost = true;
             user = userName;
         }
 

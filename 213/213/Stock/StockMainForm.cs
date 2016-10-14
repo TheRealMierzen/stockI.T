@@ -133,7 +133,7 @@ namespace _213
 
         private void StockMainForm_Load(object sender, EventArgs e)
         {
-            this.TopMost = true;
+          
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
             btnAdminShow.Location = new Point(13, (this.Height) / 2 - 20);
